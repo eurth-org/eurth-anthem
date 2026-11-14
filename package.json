@@ -1,0 +1,22 @@
+{
+  "name": "eurth-anthem",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Anthem: a national anthem lyrics generator for fictional nations, by Eurth. The engine and the phrase banks; the site comes with @eurth/style.",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dict": "node tools/build-dict.mjs",
+    "check": "tsc --noEmit",
+    "pretest": "node tools/build-dict.mjs",
+    "test": "vitest run",
+    "review": "node --experimental-strip-types --disable-warning=ExperimentalWarning tools/review.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^6.0.3",
+    "vitest": "^5.0.5"
+  }
+}
