@@ -224,94 +224,94 @@ Twenty choruses and twenty verses, made by the generator from the whole bank as 
 
 **8.7.8.7, ABAB, solemn, on unity, chorus**
 
-> Teland, true and free for ever,  
-> Here we live and here belong;  
-> Bound by truth that none shall sever,  
-> Share the bread and share the song.
+> Teland, hear thy people singing,  
+> Walk together to the end;  
+> Still the mighty towns are ringing;  
+> Each to each a lasting friend.
 
 **8.7.8.7, ABAB, solemn, on unity, verse**
 
 > Hand in hand and all together,  
-> Stand together, proud and bold;  
+> Lift the song and raise it high;  
 > Hand in hand we face the weather;  
-> Ours to guard and ours to hold.
+> While the years go rolling by.
 
 **8.7.8.7, ABCB, march, on unity, chorus**
 
-> Rise, Selunna, rise together,  
-> Take the stranger by the hand;  
-> Break the bread and share the table,  
-> For the strength of all the land.
+> O Selunna, ours for ever,  
+> Many tongues, a single song;  
+> North and south have come together,  
+> Where the old and young belong.
 
 **8.7.8.7, ABCB, march, on unity, verse**
 
 > Land of many tongues and peoples,  
-> Here we make a common start;  
+> We have known the darkest night;  
 > Make a place for every stranger;  
-> None alone and none apart.
+> We will keep you just and bright.
 
 **8.7.8.7, ABAB, hopeful, on unity, chorus**
 
-> Calderwyn, we stand together;  
-> Firm we stand and bright we stay;  
-> Through the wind and winter weather,  
-> Light the lamp and show the way.
+> Calderwyn, our song and glory,  
+> Weave the many into one;  
+> Tell the children all the story;  
+> Till the last of days is done.
 
 **8.7.8.7, ABAB, hopeful, on unity, verse**
 
 > Fairest land in all creation,  
-> Weave the many into one;  
+> Share the bread and share the song;  
 > Every heart in celebration,  
-> While the streams are bright with sun.
+> Where the old and young belong.
 
 **8.7.8.7, ABAB, pastoral, on unity, chorus**
 
 > Kwaz, be true and proud for ever,  
-> Greet the dawn and bless the day;  
+> Weave the many into one;  
 > May your concord fail you never;  
-> All together, come what may.
+> Till the last of days is done.
 
 **8.7.8.7, ABAB, pastoral, on unity, verse**
 
 > Home of hardy sons and daughters,  
-> Let no wall divide the land;  
+> Join the strong and joyful band;  
 > Loyal hearts shall guard your waters;  
 > Each to each a helping hand.
 
 **8.7.8.7, ABCB, solemn, on unity, chorus**
 
-> Valderona, strong and noble,  
-> We shall see a brighter day;  
-> Old and young, we walk as neighbours;  
-> All together, come what may.
+> Valderona, brave and noble,  
+> Weave the many into one;  
+> Fail or falter shall we never;  
+> While there shines a morning sun.
 
 **8.7.8.7, ABCB, solemn, on unity, verse**
 
 > Land of many tongues and peoples,  
-> Here we make a common start;  
+> We have known the darkest night;  
 > Make a place for every stranger;  
-> None alone and none apart.
+> Long may all thy fields be bright.
 
 **8.6.8.6, ABCB, march, on unity, chorus**
 
-> Join hands, join hands, and none alone,  
-> Stand firm through flood and night;  
-> We share one table and one sky;  
-> Selunna, brave and bright.
+> Selunna, true and steadfast land,  
+> O grant us lasting peace;  
+> Our elders sowed, and we have grown;  
+> And may our joys increase.
 
 **8.6.8.6, ABCB, march, on unity, verse**
 
 > O land of many, land of one,  
-> Come share the bread and song;  
-> O keep us proud, and keep us true;  
-> For ever free and strong.
+> Now let the banners fly;  
+> Let hope and courage light the way;  
+> As years go rolling by.
 
 **8.6.8.6, AABB, hopeful, on unity, chorus**
 
 > O Calderwyn, our noble land,  
 > United, hand in hand;  
-> Beneath the wide and open sky,  
-> Lift up the song on high.
+> As loud as bells, as clear as day,  
+> Go forth, and come what may.
 
 **8.6.8.6, AABB, hopeful, on unity, verse**
 
@@ -323,51 +323,51 @@ Twenty choruses and twenty verses, made by the generator from the whole bank as 
 **8.6.8.6, ABAB, pastoral, on unity, chorus**
 
 > O Kwaz, the free, the bold, the strong,  
-> No stranger at the door;  
+> We sing with all our heart;  
 > Come one, come all, and join the song;  
-> In love for evermore.
+> And never drift apart.
 
 **8.6.8.6, ABAB, pastoral, on unity, verse**
 
 > O land of streams and peaceful walls,  
 > One table and one sky;  
 > From golden homes to quiet halls,  
-> Lift up the song on high.
+> Now let the banners fly.
 
 **8.6.8.6, ABCB, solemn, on unity, chorus**
 
 > O Valderona, land of hope,  
-> Come share the bread and song;  
-> We love the garden and the town,  
-> And here we all belong.
+> Now all together, sing;  
+> Our mothers sowed, and we have grown,  
+> And all the echoes ring.
 
 **8.6.8.6, ABCB, solemn, on unity, verse**
 
 > O home of many, hearth of all,  
-> One hope in every heart;  
-> Our founders built, and we shall shield;  
-> And none of us apart.
+> United, hand in hand;  
+> The land we love is fair and strong;  
+> As once our founders planned.
 
 **8.6.8.6, AABB, march, on unity, chorus**
 
-> We keep the truth our mothers won,  
-> Beneath the rising sun;  
-> Stand fast, stand firm, through war and night;  
-> And Teland shall be bright.
+> O Teland, ever bold and true,  
+> Each morning makes us new;  
+> Stand fast, stand firm, through night and war;  
+> Our song for evermore.
 
 **8.6.8.6, AABB, march, on unity, verse**
 
-> O land of love and land of pride,  
-> The land is bright and wide;  
-> Come one, come all, and join the song;  
-> For ever brave and strong.
+> O land of many, land of one,  
+> The night is past and done;  
+> Go forward, friends, and come what may;  
+> For ever and a day.
 
 **7.7.7.7, AABB, hopeful, on unity, chorus**
 
 > Calderwyn, the true and strong,  
 > Many tongues, a single song;  
-> Far and wide our people roam;  
-> Many hearts, a single home.
+> None shall stand or fall alone;  
+> Reaping all that we have sown.
 
 **7.7.7.7, AABB, hopeful, on unity, verse**
 
@@ -379,48 +379,48 @@ Twenty choruses and twenty verses, made by the generator from the whole bank as 
 **7.7.7.7, ABAB, pastoral, on unity, chorus**
 
 > Kwaz, our homeland, strong and bright,  
-> Share the bread and share the song;  
+> Watch the years go rolling by;  
 > Through the frost and through the night,  
-> Let the pride we keep be strong.
+> Let the banners proudly fly.
 
 **7.7.7.7, ABAB, pastoral, on unity, verse**
 
 > Take the stranger by the hand,  
 > While we have a loaf to share;  
-> Let no wall divide the land;  
+> Join the strong and joyful band;  
 > Long may all your homes be fair.
 
 **7.7.7.7, ABCB, solemn, on unity, chorus**
 
-> Valderona, land of strength,  
-> Far and wide our people roam;  
-> We shall see a brighter day,  
-> And we share a common home.
+> Valderona, land of pride,  
+> Join the strong and joyful band;  
+> From the dawn to close of day,  
+> Free of heart and fair of hand.
 
 **7.7.7.7, ABCB, solemn, on unity, verse**
 
+> Different roads have led us here;  
 > Every hand has work to share;  
 > Many tongues, a single song;  
-> Firm we stand on common ground;  
-> Heart and hand, we shall be strong.
+> Long may all thy homes be fair.
 
 **7.7.7.7, AABB, march, on unity, chorus**
 
-> Teland, Teland, brave and strong,  
-> Share the bread and share the song;  
-> Though our ways be far apart,  
-> Here we make a common start.
+> Teland, ever brave and strong,  
+> Many tongues, a single song;  
+> Every hand has work to share,  
+> And the hope we hold is fair.
 
 **7.7.7.7, AABB, march, on unity, verse**
 
-> Land that gave us heart and hand,  
-> Let no wall divide the land;  
-> Weave the many into one,  
-> Till the work of peace is done.
+> Land of many, land of one,  
+> Finish what we have begun;  
+> Take the stranger by the hand,  
+> For the joy of all the land.
 
 **7.7.7.7, ABAB, hopeful, on unity, chorus**
 
-> O Selunna, bold and fair,  
+> O Selunna, free and fair,  
 > Let no wall divide the land;  
 > Every hand has work to share;  
 > So we pledge with heart and hand.
@@ -428,76 +428,76 @@ Twenty choruses and twenty verses, made by the generator from the whole bank as 
 **7.7.7.7, ABAB, hopeful, on unity, verse**
 
 > Land of morning, land of light,  
-> Share the bread and share the song;  
+> Weave the many into one;  
 > We have known the darkest night;  
-> Heart and hand, we shall be strong.
+> While there shines a morning sun.
 
 **Free (8.6.8.6), ABAB, pastoral, on unity, chorus**
 
 > O Kwaz, O Kwaz, our song, our land,  
-> No stranger at the door;  
+> We sing with all our heart;  
 > With fearless hearts we take our stand;  
-> In pride for evermore.
+> And none of us apart.
 
 **Free (8.6.8.8), ABAB, pastoral, on unity, verse**
 
 > O land of hills and peaceful walls,  
-> The story shall be told;  
+> There's work for all to do;  
 > From sunlit towns to ancient halls,  
-> The land we love is fair and bold.
+> The years have taught us to be true.
 
-**Free (8.6.8.6), ABCB, solemn, on unity, chorus**
+**Free (8.6.8.8), ABCB, solemn, on unity, chorus**
 
-> Though many roads have brought us here,  
-> The land is green and wide;  
-> O Valderona, proud and just,  
-> One people, side by side.
+> O Valderona, strong and just,  
+> We sing with all our heart;  
+> Sing out, sing out, and sing again;  
+> And nothing sets our hearts apart.
 
 **Free (7.8.7.8), ABCB, solemn, on unity, verse**
 
 > Side by side and hand in hand,  
-> Come one, come all, and join the song;  
-> Weave the many into one;  
-> For ever bright, for ever strong.
+> Go forward, friends, and come what may;  
+> Watch the years go rolling by;  
+> And here our hearts shall ever stay.
 
-**Free (8.7.8.7), AABB, march, on unity, chorus**
+**Free (7.6.7.6), AABB, march, on unity, chorus**
 
-> O Teland, Teland, glad and strong,  
-> Raise the banner, raise the song;  
-> No wall divides us, and no sea;  
-> So it was, and so shall be.
+> Teland, Teland, just and bold,  
+> The land is ours to hold;  
+> Here our hopes at last are found;  
+> By love and honour bound.
 
 **Free (8.6.8.8), AABB, march, on unity, verse**
 
 > O land our fathers called their own,  
 > Join hands, and none alone;  
-> By all the halls our mothers knew,  
-> The land we love is fair and true.
+> As sure as morning follows night,  
+> The halls are fair, the streams are bright.
 
 **Free (8.7.8.7), ABAB, hopeful, on unity, chorus**
 
 > Fail or falter shall we never,  
-> While the homes and cities stand;  
+> As it was in days of old;  
 > O Selunna, ours for ever,  
-> So we pledge with heart and hand.
+> Ours to shield and ours to hold.
 
 **Free (8.6.8.8), ABAB, hopeful, on unity, verse**
 
-> Wherever towns and rivers lie,  
-> Join hands, and none alone;  
-> We share one table and one sky;  
-> Our home, our hope, our land, our own.
+> By all the towns our fathers knew,  
+> Now let the banners fly;  
+> The land we love is fair and true;  
+> One people under one wide sky.
 
-**Free (8.6.8.8), ABCB, pastoral, on unity, chorus**
+**Free (8.6.8.6), ABCB, pastoral, on unity, chorus**
 
-> Though many roads have brought us here,  
-> No stranger at the door;  
-> O Calderwyn, our steadfast land,  
-> We keep it now and evermore.
+> We share one table and one sky,  
+> And many speak as one;  
+> O Calderwyn, the proud and fair,  
+> Until the race is run.
 
 **Free (8.6.8.6), ABCB, pastoral, on unity, verse**
 
 > Where the roads of all are meeting,  
-> Come share the bread and song;  
+> Now guard what we defend;  
 > Land of many tongues and peoples,  
-> For ever true and strong.
+> Together to the end.

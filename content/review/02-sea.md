@@ -305,87 +305,87 @@ Twenty choruses and twenty verses, made by the generator from the whole bank as 
 
 **8.7.8.7, ABAB, solemn, on sea, chorus**
 
-> Teland, free and bold for ever,  
-> Stand like cliffs against the tide;  
-> May thy courage fail thee never;  
-> Ours to shield and ours to guide.
+> Where the gulls are homeward winging,  
+> Sing for Teland, sing as one;  
+> Hear the bells of morning ringing,  
+> While the sails are bright with sun.
 
 **8.7.8.7, ABAB, solemn, on sea, verse**
 
 > Where the restless waves are breaking,  
-> Keep the hope and bless the sea;  
-> Still the golden cliffs are waking;  
-> Wave and wind shall keep us free.
+> Let the seas and gardens ring;  
+> Still the windswept cliffs are waking;  
+> Evergreen as hills in spring.
 
 **8.7.8.7, ABCB, march, on rivers, chorus**
 
-> Come what may of wind and weather,  
-> Every river knows its way;  
-> Rise, Selunna, rise together,  
-> While the springs are bright with day.
+> Sing, Selunna, sing for ever,  
+> For the pride of all the land;  
+> Old the river, young the morning;  
+> Friend to friend and hand in hand.
 
 **8.7.8.7, ABCB, march, on rivers, verse**
 
 > Land of love and ancient story,  
-> We have known the darkest night;  
+> We have come a weary way;  
 > Hear your elders gladly singing;  
-> This our hope and this our light.
+> Evermore, come night, come day.
 
 **8.7.8.7, ABAB, hopeful, on sea, chorus**
 
-> Calderwyn, we stand together;  
-> Firm we stand and bright we stay;  
-> Through the wind and winter weather,  
-> Raise the sail and greet the day.
+> Calderwyn, our song and glory,  
+> Bless the fleet and bless the shore;  
+> Tell the children all the story;  
+> Sing it now and evermore.
 
 **8.7.8.7, ABAB, hopeful, on sea, verse**
 
 > Home of humble sons and daughters,  
-> Keep the lantern burning bright;  
+> Raise the sail and greet the day;  
 > Sing it, wind, and sing it, waters;  
-> This our pride and this our light.
+> Step by step and all the way.
 
 **8.7.8.7, ABAB, pastoral, on rivers, chorus**
 
-> Kwaz, be proud and true for ever,  
-> Greet the dawn and bless the day;  
-> May your friendship fail you never;  
-> Sure as rivers find their way.
+> Kwaz, be glad and just for ever,  
+> Watch the years go rolling by;  
+> Bound by truth that none shall sever,  
+> Let the banners proudly fly.
 
 **8.7.8.7, ABAB, pastoral, on rivers, verse**
 
 > Land of love and ancient story,  
-> Let the river bear the song;  
+> Join the strong and joyful band;  
 > One in heart and one in glory;  
-> We will keep you brave and strong.
+> Friend to friend and hand in hand.
 
 **8.7.8.7, ABCB, solemn, on sea, chorus**
 
-> Valderona, strong and noble,  
-> Ours the shore and ours the sea;  
-> Still the morning mist is lifting;  
-> Wave and wind shall keep us free.
+> Valderona, ours for ever,  
+> Wind and wave have made us one;  
+> This our song and this our story;  
+> While there shines a morning sun.
 
 **8.7.8.7, ABCB, solemn, on sea, verse**
 
 > Land of sail and shining ocean,  
-> Here the sea and sky are wide;  
+> Firm we stand on common ground;  
 > Keep the harbour lantern burning;  
-> Steady as the turning tide.
+> Each to each by friendship bound.
 
 **8.6.8.6, ABCB, march, on rivers, chorus**
 
-> Selunna, bold and steadfast land,  
-> O grant us lasting peace;  
-> Stand fast, stand firm, through storm and night;  
-> May friendship never cease.
+> With every voice in every town,  
+> Come, build the land anew;  
+> O bless the garden and the bank;  
+> Selunna, bold and true.
 
 **8.6.8.6, ABCB, march, on rivers, verse**
 
-> O land of banks and ancient lakes,  
-> Come, build the land anew;  
-> Be just, be brave, be fair of heart;  
-> We pledge our hearts to you.
+> O land of banks and ancient fords,  
+> Now guard what we defend;  
+> Come, mills and bridges, join the song;  
+> Together to the end.
 
 **8.6.8.6, AABB, hopeful, on sea, chorus**
 
@@ -404,51 +404,51 @@ Twenty choruses and twenty verses, made by the generator from the whole bank as 
 **8.6.8.6, ABAB, pastoral, on rivers, chorus**
 
 > O Kwaz, O Kwaz, our home, our land,  
-> Each morning makes us new;  
+> The song is ours to sing;  
 > Go forth with strength in heart and hand;  
-> We pledge our hearts to you.
+> Whatever years may bring.
 
 **8.6.8.6, ABAB, pastoral, on rivers, verse**
 
 > O land of banks and peaceful mills,  
 > The river knows its way;  
 > From golden fords to quiet hills,  
-> Arise and greet the day.
+> Go forth, and come what may.
 
 **8.6.8.6, ABCB, solemn, on sea, chorus**
 
-> Together we have come so far,  
-> And salt is in the air;  
-> The sea is wide, the sky is high;  
-> O Valderona, fair.
+> Wherever wind and water meet,  
+> Now all together, sing;  
+> O Valderona, land of hope,  
+> Whatever years may bring.
 
 **8.6.8.6, ABCB, solemn, on sea, verse**
 
 > O daughter of the wind and wave,  
 > The tide is running free;  
-> We are the keepers of the flame;  
-> We pledge our hearts to thee.
+> The bays and harbours know our name;  
+> In all we hope to be.
 
 **8.6.8.6, AABB, march, on rivers, chorus**
 
-> We keep the peace our mothers won,  
-> Beneath the rising sun;  
-> Come, fords and ferries, join the song;  
+> Beneath a wide and starry dome,  
+> One people and one home;  
+> Let every voice be raised in song;  
 > And Teland shall be strong.
 
 **8.6.8.6, AABB, march, on rivers, verse**
 
 > O land of love and land of pride,  
 > The land is bright and wide;  
-> Remember those who went before;  
-> In hope for evermore.
+> Go forward, friends, and never fear;  
+> From year to passing year.
 
 **7.7.7.7, AABB, hopeful, on sea, chorus**
 
-> Calderwyn, the strong and brave,  
-> Hold the course through wind and wave;  
-> Keep the lantern burning bright,  
-> Through the gale and through the night.
+> Every voice takes up the song;  
+> Here we live and here belong;  
+> Teach the children to be true;  
+> Calderwyn, we sing for you.
 
 **7.7.7.7, AABB, hopeful, on sea, verse**
 
@@ -462,91 +462,91 @@ Twenty choruses and twenty verses, made by the generator from the whole bank as 
 > Kwaz, O Kwaz, our song, our light,  
 > Guard your people, guard your land;  
 > We have known the darkest night;  
-> Friend to friend and hand in hand.
+> Side by side, as one we stand.
 
 **7.7.7.7, ABAB, pastoral, on rivers, verse**
 
-> Light the lamp and show the way,  
-> That our children may be free;  
-> Greet the dawn and bless the day;  
+> Greet the dawn and bless the day,  
+> For the days we shall not see;  
+> Light the lamp and show the way;  
 > So it was, and so shall be.
 
 **7.7.7.7, ABCB, solemn, on sea, chorus**
 
-> Valderona, land of hope,  
-> We have sailed through storm and gale;  
-> We shall see a brighter day,  
-> And the sea-wind fills the sail.
+> Still the beacon keeps its light,  
+> Where the old and young belong;  
+> Every tide shall bring us home;  
+> Valderona, hear our song.
 
 **7.7.7.7, ABCB, solemn, on sea, verse**
 
-> Here the sea and sky are wide;  
+> We have sailed through storm and gale;  
 > Ours the shore and ours the sea;  
 > Wind and wave have made us one;  
-> Wave and wind shall keep us free.
+> All we are and hope to be.
 
 **7.7.7.7, AABB, march, on rivers, chorus**
 
-> Teland, Teland, proud and bright,  
-> We have known the darkest night;  
-> All our streams run down as one,  
-> While the lakes are bright with sun.
+> Teland, Teland, brave and strong,  
+> Here we live and here belong;  
+> Every river knows its way,  
+> While the lakes are bright with day.
 
 **7.7.7.7, AABB, march, on rivers, verse**
 
 > Land of river, bridge and mill,  
 > Keep the joy and bless the hill;  
-> Greet the dawn and bless the day,  
-> For the years along the way.
+> Let our many hearts be one,  
+> Till the work of peace is done.
 
 **7.7.7.7, ABAB, hopeful, on sea, chorus**
 
-> O Selunna, free and bright,  
-> Walk together to the end;  
-> We have known the darkest night;  
-> Ours to guide and ours to tend.
+> O Selunna, bold and free,  
+> Bless the fleet and bless the shore;  
+> Ours the shore and ours the sea;  
+> Sing it now and evermore.
 
 **7.7.7.7, ABAB, hopeful, on sea, verse**
 
 > Land of harbour, sail and tide,  
-> Light the lamp and show the way;  
+> Keep the lantern burning bright;  
 > Here the sea and sky are wide;  
-> Evermore, come night, come day.
+> Turning always to the light.
 
 **Free (8.6.8.6), ABAB, pastoral, on rivers, chorus**
 
 > O Kwaz, O Kwaz, our pride, our song,  
-> The river knows its way;  
+> Our work is well begun;  
 > Our dreams are high, our hearts are strong;  
-> Tomorrow and today.
+> Our many streams are one.
 
 **Free (8.6.8.8), ABAB, pastoral, on rivers, verse**
 
 > O land of halls and peaceful mills,  
-> The story shall be told;  
+> There's work for all to do;  
 > From sunlit springs to ancient hills,  
-> The land we love is fair and bold.
+> The years have taught us to be true.
 
-**Free (8.6.8.8), ABCB, solemn, on sea, chorus**
+**Free (8.6.8.6), ABCB, solemn, on sea, chorus**
 
-> O Valderona, land of peace,  
-> The harbour lights are bright;  
-> Let every harbour ring with song;  
-> One shore, one sea, one steady light.
+> When storm and darkness hide the shore,  
+> The land is green and wide;  
+> O Valderona, proud and just,  
+> As steady as the tide.
 
 **Free (7.8.7.8), ABCB, solemn, on sea, verse**
 
-> Where the river meets the tide,  
-> Come wind, come wave, we hold the shore;  
-> Hold the course through wind and wave;  
-> We keep it now and evermore.
+> When the storm is on the deep,  
+> Let every harbour ring with song;  
+> Watch the years go rolling by;  
+> For ever bright, for ever strong.
 
 **Free (7.6.7.6), AABB, march, on rivers, chorus**
 
-> Teland, Teland, just and strong,  
-> One people and one song;  
-> Every river knows its way;  
-> Tomorrow and today.
+> Teland, Teland, just and bold,  
+> The land is ours to hold;  
+> All our streams run down as one;  
+> Until our work is done.
 
 **Free (8.6.8.8), AABB, march, on rivers, verse**
 
@@ -555,30 +555,30 @@ Twenty choruses and twenty verses, made by the generator from the whole bank as 
 > Though far away or near at hand,  
 > With loyal hearts we take our stand.
 
-**Free (7.7.8.6), ABAB, hopeful, on sea, chorus**
+**Free (8.7.8.7), ABAB, hopeful, on sea, chorus**
 
-> O Selunna, proud and bold,  
-> Hold the course through wind and wave;  
-> Our fathers built, and we shall hold;  
-> For ever glad and brave.
+> This our song and this our story,  
+> And the gulls are in the sky;  
+> O Selunna, land of glory,  
+> Glad of heart, with heads held high.
 
 **Free (8.6.8.8), ABAB, hopeful, on sea, verse**
 
-> Beneath the wide and open sky,  
+> By all the ships our fathers knew,  
 > O bless the ships at sea;  
-> The sea is wide, the sky is high;  
+> The land we love is fair and true;  
 > The sea is ours, and we are free.
 
 **Free (8.6.8.6), ABCB, pastoral, on rivers, chorus**
 
 > The river runs, the river sings,  
-> Beneath the rising sun;  
-> O Calderwyn, the proud and brave,  
-> Our many streams are one.
+> And all the rivers sing;  
+> O Calderwyn, the proud and fair,  
+> As green as hills in spring.
 
 **Free (8.6.8.6), ABCB, pastoral, on rivers, verse**
 
 > Where the bridge has cast its shadow,  
-> Come, build the land anew;  
+> Now guard what we defend;  
 > Land of bridges, land of rivers,  
-> We pledge our hearts to you.
+> Together to the end.

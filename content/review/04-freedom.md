@@ -290,108 +290,108 @@ Twenty choruses and twenty verses, made by the generator from the whole bank as 
 
 **8.7.8.7, ABAB, solemn, on freedom, chorus**
 
-> Teland, free and bold for ever,  
-> Light the lamp and show the way;  
-> May thy mercy fail thee never;  
-> Evermore, come night, come day.
+> High the torch of hope is blazing;  
+> Here we live and here belong;  
+> Every voice is ours for raising;  
+> Teland, Teland, hear our song.
 
 **8.7.8.7, ABAB, solemn, on freedom, verse**
 
 > Now that every chain is broken,  
-> Keep us true through storm and night;  
+> Let the streams and valleys sing;  
 > Free the word that we have spoken;  
-> Long may all thy halls be bright.
+> Evergreen as hills in spring.
 
 **8.7.8.7, ABCB, march, on revolution, chorus**
 
-> O Selunna, land of valour,  
-> Light the lamp and show the way;  
-> When the people rose like thunder,  
-> Many hands have made the day.
+> Sing, Selunna, sing for ever,  
+> As our elders did of old;  
+> Hand to hand we built tomorrow;  
+> Long as tales like ours are told.
 
 **8.7.8.7, ABCB, march, on revolution, verse**
 
 > Land of love and ancient story,  
-> We have known the darkest night;  
+> Far and wide our people roam;  
 > Raise the banner high together;  
-> This our song and this our light.
+> This our light and this our home.
 
 **8.7.8.7, ABAB, hopeful, on freedom, chorus**
 
-> Calderwyn, our ancient nation,  
-> Here the loyal heart is strong;  
-> Love and birthright our foundation;  
-> This our light and this our song.
+> Now that every chain is broken,  
+> Let the joy we keep be true;  
+> Free the word that we have spoken;  
+> Calderwyn, we sing for you.
 
 **8.7.8.7, ABAB, hopeful, on freedom, verse**
 
 > Land that broke the chains of ages,  
-> Hold the road and hold it fast;  
+> Keep the flame of freedom bright;  
 > Write it large on all our pages;  
-> Freedom first and freedom last.
+> Through the day and through the night.
 
 **8.7.8.7, ABAB, pastoral, on revolution, chorus**
 
 > Kwaz, be true and proud for ever,  
-> Give us joy and give us pride;  
-> May your mercy fail you never;  
-> Heart to heart and side by side.
+> Let the joyful song resound;  
+> May your friendship fail you never;  
+> Firm upon our native ground.
 
 **8.7.8.7, ABAB, pastoral, on revolution, verse**
 
 > Land of love and ancient story,  
-> March together, heart and hand;  
+> Build it as our mothers planned;  
 > One in heart and one in glory;  
-> This our song and this our land.
+> Forward, comrades, hand in hand.
 
 **8.7.8.7, ABCB, solemn, on freedom, chorus**
 
-> Where the ancient hills lie dreaming,  
-> Hold the freedom we have won;  
-> Valderona, all together,  
-> While the towns are bright with sun.
+> Valderona, ours for ever,  
+> Here our hopes at last are found;  
+> Hearts and voices raised together;  
+> Free of heart and honour bound.
 
 **8.7.8.7, ABCB, solemn, on freedom, verse**
 
 > Land that broke the chains of ages,  
 > Here the old and young are free;  
 > Break the chain and lift the fallen;  
-> Strong we are and fair shall be.
+> So it was, and so shall be.
 
 **8.6.8.6, ABCB, march, on revolution, chorus**
 
-> March on, march on, the day is near,  
-> Stand firm through flood and night;  
-> We rose as one, and here we stand;  
-> Selunna, bold and bright.
+> Selunna, land of strength and love,  
+> We rose, and here we stand;  
+> Our songs are high, our hearts are glad;  
+> Together, hand in hand.
 
 **8.6.8.6, ABCB, march, on revolution, verse**
 
 > O land the people made their own,  
-> Come, build the land anew;  
-> Come, walls and valleys, join the song;  
-> We pledge our hearts to you.
+> Stand firm and never stray;  
+> O keep us proud, and keep us true;  
+> And here our hearts shall stay.
 
 **8.6.8.6, AABB, hopeful, on freedom, chorus**
 
-> Hold fast the freedom we have won,  
-> Until the day is done;  
-> The right to speak, the right to be;  
-> Hail, Calderwyn, the free.
+> O Calderwyn, our noble land,  
+> United, hand in hand;  
+> As long as any heart is bound,  
+> Now make a joyful sound.
 
 **8.6.8.6, AABB, hopeful, on freedom, verse**
 
-> Let old and young together sing,  
-> Now let the rivers ring;  
-> Let peace and honour light the way,  
-> From dawn to close of day.
+> Go forward, friends, and come what may,  
+> Stand firm and never stray;  
+> Hold fast to all that makes us one,  
+> Until the day is done.
 
 **8.6.8.6, ABAB, pastoral, on revolution, chorus**
 
+> By many roads our people came;  
+> There's work for all to do;  
 > The towns and borders know our name;  
-> The story shall be told;  
-> We are the keepers of the flame;  
-> O Kwaz, be free, be bold.
+> O Kwaz, we sing for you.
 
 **8.6.8.6, ABAB, pastoral, on revolution, verse**
 
@@ -402,45 +402,45 @@ Twenty choruses and twenty verses, made by the generator from the whole bank as 
 
 **8.6.8.6, ABCB, solemn, on freedom, chorus**
 
-> The land we love is fair and proud,  
-> And here we all belong;  
-> We share one hope, one hearth, one home;  
-> O Valderona, strong.
+> Together we have come so far,  
+> And all the echoes ring;  
+> We bow to none, we stand as one;  
+> O Valderona, sing.
 
 **8.6.8.6, ABCB, solemn, on freedom, verse**
 
 > O home of free and equal hands,  
-> The chains are cast away;  
-> Together we have come so far;  
-> Tomorrow and today.
+> Each morning makes us new;  
+> The land we love is fair and proud;  
+> And time has proved us true.
 
 **8.6.8.6, AABB, march, on revolution, chorus**
 
-> Though far away or near at hand,  
-> We rose, and here we stand;  
-> Let every voice be raised in song;  
+> When all the people rose as one,  
+> The night is past and done;  
+> Come, streets and pastures, join the song;  
 > And Teland shall be strong.
 
 **8.6.8.6, AABB, march, on revolution, verse**
 
 > O land of love and land of pride,  
 > The land is bright and wide;  
-> Remember those who lit the flame;  
-> In every heart the same.
+> Go forward, friends, and come what may;  
+> For ever and a day.
 
 **7.7.7.7, AABB, hopeful, on freedom, chorus**
 
-> Calderwyn, the bold and strong,  
-> Raise the banner, raise the song;  
-> Fair we stand and just we stay;  
-> Evermore, come night, come day.
+> Long ago the fetters broke;  
+> We were born beneath no yoke;  
+> Teach the children to be true;  
+> Calderwyn, we sing for you.
 
 **7.7.7.7, AABB, hopeful, on freedom, verse**
 
 > Land that cast away the chain,  
 > Free we stand and free remain;  
-> Let the halls and valleys ring;  
-> This we promise, this we sing.
+> Lift the song and raise it high;  
+> Under one unbroken sky.
 
 **7.7.7.7, ABAB, pastoral, on revolution, chorus**
 
@@ -451,87 +451,87 @@ Twenty choruses and twenty verses, made by the generator from the whole bank as 
 
 **7.7.7.7, ABAB, pastoral, on revolution, verse**
 
-> Light the lamp and show the way,  
-> Till the work we swore is done;  
-> Greet the dawn and bless the day;  
-> Old and young, we stand as one.
+> Be to each a faithful friend,  
+> For the ones who fell that day;  
+> Keep the gardens that we tend;  
+> Here our hearts are glad to stay.
 
 **7.7.7.7, ABCB, solemn, on freedom, chorus**
 
-> Valderona, land of strength,  
-> We shall see a brighter day;  
-> None shall bind us, none shall break,  
-> And the fetters fall away.
+> Long ago the fetters broke,  
+> Where the old and young belong;  
+> None shall bind us, none shall break;  
+> Valderona, hear our song.
 
 **7.7.7.7, ABCB, solemn, on freedom, verse**
 
 > Every voice may speak its part;  
 > Free we stand and free remain;  
-> We are free as wind and light;  
-> Never more to wear a chain.
+> Here no chain shall bind the mind;  
+> Not a hope was held in vain.
 
 **7.7.7.7, AABB, march, on revolution, chorus**
 
-> Teland, Teland, proud and strong,  
+> Teland, Teland, brave and strong,  
 > Raise the banner, raise the song;  
 > When the old world passed away,  
-> Greet the dawn and bless the day.
+> Many hands have made the day.
 
 **7.7.7.7, AABB, march, on revolution, verse**
 
-> Mother of the true and fair,  
-> Keep the truth and bless the square;  
+> Land that gave us heart and hand,  
+> Guard your people, guard your land;  
 > Let our many hearts be one,  
 > Till the work we swore is done.
 
 **7.7.7.7, ABAB, hopeful, on freedom, chorus**
 
-> O Selunna, true and strong,  
-> Free we stand and free remain;  
-> Every field has heard our song;  
-> Never more to wear a chain.
+> O Selunna, bold and strong,  
+> Hold the freedom we have won;  
+> Every vale has heard our song;  
+> Till the last of days is done.
 
 **7.7.7.7, ABAB, hopeful, on freedom, verse**
 
 > Land that bows to none but right,  
-> Let the truth we keep be bold;  
+> Let the joyful song resound;  
 > We are free as wind and light;  
-> Ours to bless and ours to hold.
+> Free of heart and honour bound.
 
 **Free (8.6.8.6), ABAB, pastoral, on revolution, chorus**
 
 > O Kwaz, O Kwaz, our song, our pride,  
-> We rose, and here we stand;  
+> We sing with all our heart;  
 > The towns are green, the squares are wide;  
-> Together, hand in hand.
+> And never drift apart.
 
 **Free (8.6.8.8), ABAB, pastoral, on revolution, verse**
 
 > O land of skies and peaceful walls,  
-> The story shall be told;  
+> There's work for all to do;  
 > From sunlit streets to ancient halls,  
-> The land we love is fair and bold.
+> The years have taught us to be true.
 
-**Free (7.7.8.6), ABCB, solemn, on freedom, chorus**
+**Free (8.6.8.6), ABCB, solemn, on freedom, chorus**
 
-> Valderona, bold and free,  
-> Here we plant and here we grow;  
-> The towns are bright, the homes are green,  
-> Wherever we may go.
+> Because our elders broke the chain,  
+> The land is bright and wide;  
+> O Valderona, strong and just,  
+> One people, side by side.
 
 **Free (7.8.7.8), ABCB, solemn, on freedom, verse**
 
-> Now the chains are cast away,  
-> Go free, go free, and fear no chain;  
-> Leave the weary years behind;  
-> In pride and peace we shall remain.
+> Come the night or come the frost,  
+> Go forward, friends, and come what may;  
+> Lift the heart and banish fear;  
+> And here our hearts shall ever stay.
 
 **Free (8.6.8.8), AABB, march, on revolution, chorus**
 
 > O Teland, ever brave and bold,  
-> The story shall be told;  
-> Remember those who lit the flame;  
-> With patient hearts we sing your name.
+> The land is ours to hold;  
+> Go forward, friends, and never fear;  
+> The land we love and hold most dear.
 
 **Free (8.6.8.8), AABB, march, on revolution, verse**
 
@@ -540,30 +540,30 @@ Twenty choruses and twenty verses, made by the generator from the whole bank as 
 > By all the streets our mothers knew,  
 > Our hopes are high, our hearts are true.
 
-**Free (8.7.8.7), ABAB, hopeful, on freedom, chorus**
+**Free (8.6.8.8), ABAB, hopeful, on freedom, chorus**
 
-> Fail or falter shall we never,  
-> And the fetters fall away;  
-> O Selunna, ours for ever,  
-> Evermore, come night, come day.
+> Selunna, land of truth and pride,  
+> Arise and greet the day;  
+> The chains are gone, the gates are wide,  
+> And none shall take the right away.
 
 **Free (8.6.8.8), ABAB, hopeful, on freedom, verse**
 
-> Beneath the wide and open sky,  
-> Go free and fear no chain;  
-> We walk in freedom, heads held high;  
-> In pride and truth we shall remain.
+> From road to stream, from hill to field,  
+> Hold fast what we have won;  
+> Our courage is our only shield;  
+> Until the last of days is done.
 
 **Free (8.6.8.6), ABCB, pastoral, on revolution, chorus**
 
-> We love the border and the street,  
-> While streets and rivers stand;  
-> O Calderwyn, the proud and free,  
-> Together, hand in hand.
+> We rose as one, and here we stand,  
+> And banners fill the sky;  
+> O Calderwyn, the proud and brave,  
+> And let our banners fly.
 
 **Free (8.6.8.6), ABCB, pastoral, on revolution, verse**
 
 > When the people rose like thunder,  
-> Come, build the land anew;  
+> Stand firm and never stray;  
 > Land the many hands have founded,  
-> We pledge our hearts to you.
+> And here our hearts shall stay.

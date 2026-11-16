@@ -218,9 +218,10 @@ const LAST_COUPLETS: readonly Couplet[] = [
 ];
 
 /** The mark after each line. A couplet runs on with a comma, or balances on a semicolon. */
-function marks(plan: Plan): [string, string, string, string] {
+function marks(plan: Plan, emu = false): [string, string, string, string] {
   const inside = (a: Role, b: Role) => (a === 'state' && (b === 'state' || b === 'close') ? ';' : a === 'call' && b === 'close' ? ';' : ',');
-  return [inside(plan[0], plan[1]), ';', inside(plan[2], plan[3]), '.'];
+  // The emu's last line finishes the sentence before it: "..., And never once gave up the field."
+  return [inside(plan[0], plan[1]), ';', emu ? ',' : inside(plan[2], plan[3]), '.'];
 }
 
 // ----------------------------------------------------------------------------------------- context
@@ -238,6 +239,10 @@ interface Ctx {
   things: OwnWord[];
   eligible: Map<string, Item[]>;
   hasEmu: boolean;
+  /** The rhyme the emu's line ends on, when the emu is in. */
+  emuKey: string | null;
+  /** Faith is chosen and the bank has lines that speak to Heaven. */
+  prays: boolean;
 }
 
 /** What has been used so far, so that nothing comes twice. Copied for each attempt at a stanza. */
@@ -313,7 +318,8 @@ function thingsFor(ctx: Ctx, used: Used, cls: SlotClass): OwnWord[] {
 function templateWeight(ctx: Ctx, used: Used, spec: Spec, t: Template): number {
   if (t.role !== spec.role || t.kind !== spec.kind) return 0;
   if (spec.must !== null && !t.themes.includes(spec.must)) return 0;
-  if (spec.must === null && t.themes.includes('emu')) return 0;
+  // The emu's lines are for its chorus alone.
+  if (spec.must === null && t.themes.includes('emu') && !(spec.chorus && ctx.hasEmu)) return 0;
   if (t.moods.length > 0 && !t.moods.includes(ctx.s.mood)) return 0;
   if (t.reg !== null && t.reg !== ctx.reg) return 0;
   if (t.themes.length > 0 && !t.themes.some((theme) => ctx.themes.has(theme))) return 0;
@@ -321,6 +327,9 @@ function templateWeight(ctx: Ctx, used: Used, spec: Spec, t: Template): number {
   if (t.chorus === 'never' && spec.chorus) return 0;
   if (t.role === 'address' && (t.to ?? 'land') !== spec.to) return 0;
   if ((t.role === 'call' || t.role === 'contCall') && t.to !== null && t.to !== spec.to) return 0;
+  // A prayer asks Heaven for things; it doesn't turn mid-verse and tell the people to sing.
+  if (spec.to === 'god' && t.role === 'call' && t.to !== 'god') return 0;
+  if (spec.to === 'god' && t.role === 'contCall' && t.to !== 'god' && !t.themes.includes('faith')) return 0;
   if (t.nameCls !== null) {
     if (!spec.needName || !ctx.name) return 0;
     if (!ctx.name.shapes.has(t.nameCls.slice(t.nameCls.indexOf('.') + 1))) return 0;
@@ -501,7 +510,7 @@ function choosePlan(ctx: Ctx, job: StanzaJob): Plan {
       const plan: Plan = [a[0], a[1], b[0], b[1]];
       if (plan.some((role, i) => keptRoles[i] !== null && keptRoles[i] !== role)) continue;
       // A kept line keeps its closing mark, so the line after it must still follow from it.
-      const closing = marks(plan);
+      const closing = marks(plan, job.emu);
       if (job.kept.some((k, i) => k !== null && !k.line.typed && /[,;.]$/.test(k.line.text) && !k.line.text.endsWith(closing[i]!))) continue;
       let w = 1;
       // An address belongs at the top; one a stanza is plenty.
@@ -532,8 +541,10 @@ function tryStanza(ctx: Ctx, job: StanzaJob, base: Used, strict: boolean): Writt
   const used = copyUsed(base);
   const plan = choosePlan(ctx, job);
   const hasAddress = plan.includes('address');
-  const to = hasAddress || ctx.rand() < 0.75 ? 'land' : 'people';
-  const punct = marks(plan);
+  let to = hasAddress || ctx.rand() < 0.75 ? 'land' : 'people';
+  // With faith chosen, some stanzas are prayers: they speak to Heaven and not to the land.
+  if (ctx.prays && ctx.rand() < (job.focus === 'faith' ? 0.5 : 0.15)) to = 'god';
+  const punct = marks(plan, job.emu);
 
   // Which line says the name.
   let nameLine = -1;
@@ -566,6 +577,9 @@ function tryStanza(ctx: Ctx, job: StanzaJob, base: Used, strict: boolean): Writt
 
   const free = (cand: Cand) => {
     const word = endWordOf(cand);
+    // The emu's last line ends on "field": the other stanzas leave that word and its rhymes alone,
+    // so the chorus has them all to choose from.
+    if (ctx.emuKey !== null && !job.emu && (word === 'field' || cand.end?.key === ctx.emuKey)) return false;
     return !takenWords.has(word) && (!strict || !used.endWords.has(word));
   };
   const take = (i: number, cand: Cand) => {
@@ -680,7 +694,7 @@ function writeTitle(ctx: Ctx, stanzas: readonly Stanza[]): string {
     return t.parts.every((p) => !('cls' in p) || eligibleItems(ctx, ctx.bank.classes[p.cls]!).length > 0);
   });
   // An anthem on the sea should be called something of the sea.
-  const template = pick(ctx.rand, usable, (t) => (t.themes.length > 0 ? 8 : 1));
+  const template = pick(ctx.rand, usable, (t) => (t.themes.length > 0 ? 12 : 1));
   if (!template) return country === '' ? 'Anthem' : titleCase(`Song of ${country}`);
   const taken = new Set<string>();
   let text = '';
@@ -737,7 +751,8 @@ export function cleanSettings(s: Settings): Settings {
 function prepare(bank: Bank, settings: Settings, seed: number, lex: Lexicon): Ctx {
   const s = cleanSettings(settings);
   const { places, things } = sortIncluded(s.include);
-  const hasEmu = s.themes.includes('emu') && s.chorus && bank.templates.some((t) => t.themes.includes('emu') && t.role === 'close' && t.kind === 'I8');
+  const emuLine = s.themes.includes('emu') && s.chorus ? bank.templates.find((t) => t.themes.includes('emu') && t.role === 'close' && t.kind === 'I8') : undefined;
+  const hasEmu = emuLine !== undefined;
   return {
     bank,
     s,
@@ -751,6 +766,8 @@ function prepare(bank: Bank, settings: Settings, seed: number, lex: Lexicon): Ct
     things: things.map((text) => ownWord(text, 'thing', lex, s.own)),
     eligible: new Map(),
     hasEmu,
+    emuKey: emuLine?.endLit?.key ?? null,
+    prays: s.themes.includes('faith') && bank.templates.some((t) => t.to === 'god'),
   };
 }
 

@@ -6,6 +6,7 @@ import { DEFAULT_SETTINGS, cleanSettings, generate, rerollLine, sortIncluded, ti
 import { FREE_SHAPES, KIND_PATTERN, METRES, METRE_IDS, SCHEME_IDS, rhymeGroups, schemeFor, shapeAllows } from '../src/anthem/metre.ts';
 import { anyRhyme, lineEnds } from '../src/anthem/rhyme.ts';
 import { cleanWord, fitLine, scanLine, tokenise } from '../src/anthem/scan.ts';
+import { THEMES as THEME_LIST } from '../src/anthem/themes.ts';
 import { lexicon, seeded } from './helpers.ts';
 
 const lex = lexicon();
@@ -24,7 +25,7 @@ const NAMES: [string, Record<string, string>][] = [
   ['New Teland', { teland: '10' }],
 ];
 
-const THEMES = ['sea', 'rivers', 'mountains', 'north', 'freedom', 'revolution', 'unity', 'faith', 'labour', 'harvest', 'forests', 'plains'];
+const THEMES = THEME_LIST.map((theme) => theme.id);
 
 // Short fragments of famous anthems and patriotic songs. The generator must never write one,
 // even by chance. They live here only, and are never shipped.
@@ -51,7 +52,41 @@ const NEVER = [
   'workers of the world',
   'one for all',
   'we are one, but we are many',
+  'long live',
+  'long may she',
+  'long may he',
+  'reign over us',
+  'harvest home',
+  'in the sheaves',
+  'lest we forget',
+  'we will remember them',
+  'not grow old',
+  'peace on earth',
+  'war no more',
+  'home sweet home',
+  'home fires',
+  'no place like home',
+  'heart of oak',
+  'hearts of oak',
+  'greenwood tree',
+  'early light',
+  'land of the rising sun',
+  'morning has broken',
+  'safe thus far',
+  'ride on ride on',
+  'be thou my',
+  'rock of ages',
+  'sure foundation',
+  'arise ye',
 ];
+
+// The emu's lines belong to its chorus and to nowhere else.
+const EMU_WORDS = ['gave up the field', 'feather', 'tall grey birds', 'tall birds', 'the flock', 'long grey legs', 'the guns'];
+const EMU_LINE = 'And never once gave up the field.';
+
+// A stanza that prays speaks to Heaven; one that doesn't speaks to the land.
+const TO_HEAVEN = /^(O )?(Maker of|Giver of|Heaven, hear|Thou who|You who|Thou whose|You whose|Light that led|Keeper of the)/;
+const TO_THE_LAND = /^(O )?(Land |land |Home of|Mother of|mother of|Daughter of|daughter of|Realm of|realm of|Kingdom )/;
 
 /** Checks an anthem from the outside: from its words and the dictionary, not from the bank. */
 function faults(result: Result, settings: Settings): string[] {
@@ -70,7 +105,11 @@ function faults(result: Result, settings: Settings): string[] {
   anthem.stanzas.forEach((stanza, si) => {
     const where = `stanza ${si + 1}`;
     if (stanza.lines.length !== 4) out.push(`${where}: ${stanza.lines.length} lines`);
-    const fixed = METRES[s.metre].lines;
+    // With the emu the chorus is in long metre, whatever the verses are in.
+    const emuChorus = s.themes.includes('emu') && s.chorus && stanza.type === 'chorus';
+    const fixed = emuChorus ? METRES['8888'].lines : METRES[s.metre].lines;
+    if (emuChorus && stanza.lines[3]?.text !== EMU_LINE) out.push(`${where}: the emu chorus ends "${stanza.lines[3]?.text}"`);
+    if (stanza.lines.some((l) => TO_HEAVEN.test(l.text)) && stanza.lines.some((l) => TO_THE_LAND.test(l.text))) out.push(`${where}: speaks to Heaven and to the land`);
     if (fixed) {
       if (stanza.kinds.join() !== fixed.join()) out.push(`${where}: kinds ${stanza.kinds.join()}`);
     } else if (!FREE_SHAPES.some((shape) => shape.join() === stanza.kinds.join()) || !shapeAllows(stanza.kinds, scheme)) {
@@ -94,6 +133,7 @@ function faults(result: Result, settings: Settings): string[] {
       if (endWords.has(endWord)) out.push(`${at}: "${endWord}" ends a line twice`);
       endWords.add(endWord);
       for (const phrase of NEVER) if (bare.includes(phrase)) out.push(`${at}: says "${phrase}"`);
+      if (!emuChorus) for (const phrase of EMU_WORDS) if (bare.includes(phrase)) out.push(`${at}: an emu line outside the emu's chorus`);
       return lineEndings;
     });
     for (const [a, b] of rhymeGroups(scheme)) {
@@ -145,6 +185,71 @@ describe('every generated line scans, over thousands of runs', () => {
       });
     }
   }
+});
+
+describe('the emu', () => {
+  it('ends the chorus on its line, in long metre, in every metre, scheme and mood', () => {
+    const all: string[] = [];
+    let n = 0;
+    for (const metre of METRE_IDS) {
+      for (const scheme of SCHEME_IDS) {
+        for (const mood of MOOD_IDS) {
+          for (let i = 0; i < NAMES.length; i += 1) {
+            const [country, own] = NAMES[i]!;
+            n += 1;
+            const settings: Settings = { country, own, mood, metre, scheme, verses: 1 + (n % 4), chorus: true, themes: n % 3 === 0 ? ['emu', THEMES[n % THEMES.length]!] : ['emu'], include: [] };
+            const result = generate(bank, settings, 5000 + n, { lexicon: lex });
+            const found = faults(result, settings);
+            const chorus = result.anthem.stanzas[1]!;
+            if (chorus.lines[3]!.text !== EMU_LINE) found.push('the chorus does not end on the emu line');
+            if (chorus.kinds.join() !== 'I8,I8,I8,I8') found.push(`the chorus is ${chorus.kinds.join()}`);
+            if (!chorus.lines.some((l) => l.text.includes(country))) found.push('the name is not said');
+            if (found.length > 0) all.push(`${country}, ${metre} ${scheme} ${mood}, seed ${5000 + n}:\n  ${found.join('\n  ')}`);
+          }
+        }
+      }
+    }
+    expect(all.slice(0, 8)).toEqual([]);
+  });
+
+  it('stays away without a chorus, and without the theme', () => {
+    for (let seed = 1; seed <= 60; seed += 1) {
+      const settings: Settings = { ...DEFAULT_SETTINGS, country: 'Teland', own: { teland: '10' }, metre: METRE_IDS[seed % 4]!, themes: ['emu'], chorus: false, verses: 3 };
+      const result = generate(bank, settings, seed, { lexicon: lex });
+      expect(faults(result, settings), `seed ${seed}`).toEqual([]);
+      expect(lyrics(result.anthem)).not.toContain('gave up the field');
+    }
+  });
+
+  it('keeps its line when the chorus is written again round it', () => {
+    const settings: Settings = { ...DEFAULT_SETTINGS, country: 'Teland', own: { teland: '10' }, themes: ['emu'] };
+    const first = generate(bank, settings, 8, { lexicon: lex });
+    const again = rerollLine(bank, settings, first.anthem, { stanza: 1, line: 3 }, 9, { lexicon: lex });
+    expect(again.anthem.stanzas[1]!.lines[3]!.text).toBe(EMU_LINE);
+    expect(again.notes).toEqual([{ kind: 'only', stanza: 1, line: 3 }]);
+    for (let line = 0; line < 3; line += 1) {
+      const next = rerollLine(bank, settings, first.anthem, { stanza: 1, line }, 20 + line, { lexicon: lex });
+      expect(faults(next, settings), `line ${line}`).toEqual([]);
+    }
+  });
+});
+
+describe('faith', () => {
+  it('writes some stanzas as prayers, and keeps each stanza to one listener', () => {
+    let prayers = 0;
+    let stanzas = 0;
+    for (let seed = 1; seed <= 160; seed += 1) {
+      const settings: Settings = { ...DEFAULT_SETTINGS, country: 'Teland', own: { teland: '10' }, metre: METRE_IDS[seed % 4]!, scheme: SCHEME_IDS[seed % 3]!, mood: MOOD_IDS[seed % 4]!, themes: seed % 2 ? ['faith'] : ['faith', 'harvest'], verses: 3 };
+      const result = generate(bank, settings, seed, { lexicon: lex });
+      expect(faults(result, settings), `seed ${seed}`).toEqual([]);
+      for (const stanza of result.anthem.stanzas) {
+        stanzas += 1;
+        if (stanza.lines.some((l) => TO_HEAVEN.test(l.text))) prayers += 1;
+      }
+    }
+    expect(prayers).toBeGreaterThan(stanzas * 0.05);
+    expect(prayers).toBeLessThan(stanzas * 0.6);
+  });
 });
 
 describe('the generator', () => {
@@ -270,8 +375,9 @@ describe('the generator', () => {
       }
     }
     // How often a line has another that could stand in its place under every rule. With the core
-    // batch alone it is about three in four; raise this floor as batches are added (0.9 by launch).
-    expect(changed / asked).toBeGreaterThan(0.7);
+    // batch alone it was about three in four; with all eleven batches it is nearly nine in ten.
+    // What holds it back is a rhyme sound with only two words for a part: add a third (0.9 by launch).
+    expect(changed / asked).toBeGreaterThan(0.8);
     expect(rerollLine(bank, base, generate(bank, base, 1).anthem, { stanza: 9, line: 9 }, 1).notes).toEqual([]);
   });
 

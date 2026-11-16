@@ -112,7 +112,9 @@ function samples(theBank: Bank, themes: readonly string[]): string {
       // The chorus carries the name, so show it; then the verse.
       for (const stanza of [result.anthem.stanzas[1]!, result.anthem.stanzas[0]!]) {
         const said = result.notes.find((note) => note.kind === 'scheme');
-        out.push(`**${METRES[metre].label}${metre === 'free' ? ` (${kindsLabel(stanza.kinds)})` : ''}, ${said ? said.used : scheme}, ${mood}${chosen.length > 0 ? `, on ${chosen.join(' and ')}` : ''}, ${stanza.type}**\n`);
+        // Free verse changes shape from stanza to stanza, and the emu's chorus has a metre of its own.
+        const own = metre === 'free' || stanza.kinds.some((kind, k) => kind !== METRES[metre].lines![k]);
+        out.push(`**${METRES[metre].label}${metre === 'free' ? ` (${kindsLabel(stanza.kinds)})` : own ? `, this stanza in ${kindsLabel(stanza.kinds)}` : ''}, ${said ? said.used : scheme}, ${mood}${chosen.length > 0 ? `, on ${chosen.join(' and ')}` : ''}, ${stanza.type}**\n`);
         out.push(stanza.lines.map((l) => `> ${l.text}`).join('  \n'));
         out.push('');
       }
