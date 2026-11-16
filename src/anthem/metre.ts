@@ -44,15 +44,19 @@ export const METRE_IDS: readonly MetreId[] = ['8787', '8686', '7777', 'free'];
 export const FREE_MIN = 5;
 export const FREE_MAX = 11;
 
-/** The line shapes free verse draws on, a stanza at a time. */
+/**
+ * The line shapes free verse draws on, a stanza at a time. Eight-syllable lines that end on a
+ * weak beat only open a couplet, and six-syllable lines only close one.
+ */
 export const FREE_SHAPES: readonly (readonly [LineKind, LineKind, LineKind, LineKind])[] = [
   ['T8', 'T7', 'T8', 'T7'],
   ['I8', 'I6', 'I8', 'I6'],
   ['T7', 'I6', 'T7', 'I6'],
   ['I8', 'T7', 'I8', 'T7'],
   ['T7', 'T7', 'I8', 'I6'],
-  ['I8', 'I8', 'I6', 'I8'],
+  ['I8', 'I6', 'I8', 'I8'],
   ['T8', 'I6', 'T8', 'I6'],
+  ['T7', 'I8', 'T7', 'I8'],
 ];
 
 export type SchemeId = 'ABAB' | 'AABB' | 'ABCB';
@@ -76,4 +80,25 @@ export function rhymeGroups(scheme: SchemeId): readonly (readonly number[])[] {
 /** "8.7.8.7" for a stanza's line kinds, whatever they are. */
 export function kindsLabel(kinds: readonly LineKind[]): string {
   return kinds.map((k) => KIND_PATTERN[k].length).join('.');
+}
+
+/** Whether a line ends on a strong beat (m) or strong-weak (f). Only like endings can rhyme. */
+export function endingOf(kind: LineKind): 'm' | 'f' {
+  return KIND_PATTERN[kind].endsWith('S') ? 'm' : 'f';
+}
+
+/** Whether a stanza of these line kinds can keep a rhyme scheme at all. */
+export function shapeAllows(kinds: readonly LineKind[], scheme: SchemeId): boolean {
+  return rhymeGroups(scheme).every((group) => new Set(group.map((i) => endingOf(kinds[i]!))).size === 1);
+}
+
+/**
+ * The scheme a metre is written in. 8.7.8.7 can't be AABB: its lines end weak, strong, weak,
+ * strong, and a weak ending never rhymes with a strong one. It is written ABAB instead, and the
+ * page says so.
+ */
+export function schemeFor(metre: MetreId, scheme: SchemeId): SchemeId {
+  const lines = METRES[metre].lines;
+  if (lines && !shapeAllows(lines, scheme)) return 'ABAB';
+  return scheme;
 }

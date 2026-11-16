@@ -6,7 +6,9 @@ Three parts: what comes next, what each release added (newest first), and what's
 
 ## Where to pick up
 
-**14 November 2026.** Phase 1, steps 1 to 3 are done and pushed: the pronunciation table, scanning, metre and rhyme, with their tests (`npm test`). Next is step 4, the bank format and its checks, then step 5, the generator, with batch 1 of the phrase banks.
+**16 November 2026.** Phase 1, steps 1 to 5 and 7 are done and pushed: the pronunciation table, scanning, metre and rhyme, the bank format and its compiler, the generator with re-roll and kept lines, and the thousands of runs (`npm test`). Batch 1 of the phrase banks (the core, about 440 lines) is drafted in `src/anthem/bank/core.ts` and is **not reviewed yet**. Next: the review page for batch 1 (`npm run review`), then batch 2.
+
+Handy while writing the banks: `npm run sample -- 8787 ABAB solemn Teland 1 2 harbour,Selunna:010 sea` writes one anthem to the terminal, and `npm run depth` shows where the bank runs short.
 
 Waiting on others:
 

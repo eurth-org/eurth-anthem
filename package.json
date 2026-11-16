@@ -12,7 +12,9 @@
     "check": "tsc --noEmit",
     "pretest": "node tools/build-dict.mjs",
     "test": "vitest run",
-    "review": "node --experimental-strip-types --disable-warning=ExperimentalWarning tools/review.ts"
+    "review": "node --experimental-strip-types --disable-warning=ExperimentalWarning tools/review.ts",
+    "sample": "node --experimental-strip-types --disable-warning=ExperimentalWarning tools/sample.ts",
+    "depth": "node --experimental-strip-types --disable-warning=ExperimentalWarning tools/depth.ts"
   },
   "devDependencies": {
     "@types/node": "^22.10.0",

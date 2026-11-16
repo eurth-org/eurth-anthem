@@ -108,11 +108,10 @@ function fromStem(word: string, lex: Lexicon): Pron[] | undefined {
   const add = (stem: string, extra: (stem: string) => boolean) => {
     if (stem.length >= 2) tries.push([stem, extra]);
   };
-  const never = () => false;
   const always = () => true;
   if (/'s$|s'$/.test(word)) add(word.replace(/'s$|'$/, ''), (s) => /'s$/.test(word) && HISSING.test(s));
   if (/es$/.test(word)) add(word.slice(0, -2), (s) => HISSING.test(s));
-  if (/s$/.test(word)) add(word.slice(0, -1), never);
+  if (/s$/.test(word)) add(word.slice(0, -1), (s) => /(ce|se|ge|ze)$/.test(s));
   if (/ed$/.test(word)) {
     add(word.slice(0, -2), (s) => /[td]$/.test(s));
     add(word.slice(0, -1), (s) => /[td]e$/.test(s));
@@ -297,7 +296,8 @@ export interface Fit {
   problem?: FitProblem;
 }
 
-function sits(pron: Pron, at: number, pattern: string): boolean {
+/** Whether one way of saying a word can start at a beat: no main stress of a longer word on a weak beat. */
+export function sits(pron: Pron, at: number, pattern: string): boolean {
   if (at + pron.stress.length > pattern.length) return false;
   // A word of one syllable can be sung on either beat.
   if (pron.stress.length === 1) return true;
