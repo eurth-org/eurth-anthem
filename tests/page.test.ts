@@ -111,7 +111,9 @@ describe('a theme typed by hand', () => {
   });
 
   it('has no chip for a theme whose lines were left out', () => {
-    expect(chipThemes(bank).map((t) => t.id)).toEqual(THEMES.map((t) => t.id));
+    // Every theme has a chip, in alphabetical order, with "The" set aside.
+    expect(chipThemes(bank).map((t) => t.label)).toEqual(['The crown', 'Dawn', 'Faith', 'Forests', 'Freedom', 'Harvest', 'Home', 'Labour', 'Mountains', 'The north', 'Peace', 'Plains', 'Remembrance', 'Revolution', 'Rivers', 'Sea', 'Unity']);
+    expect(chipThemes(bank)).toHaveLength(THEMES.length);
     const fewer = { ...bank, templates: bank.templates.filter((t) => !t.themes.includes('crown')) };
     expect(chipThemes(fewer).map((t) => t.id)).not.toContain('crown');
     expect(addOwnTheme('crown', base, themesWithLines(fewer)).settings.include).toEqual(['crown']);

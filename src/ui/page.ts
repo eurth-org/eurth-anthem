@@ -115,9 +115,11 @@ export function themesWithLines(bank: Bank): Set<string> {
   return new Set(bank.templates.flatMap((t) => t.themes));
 }
 
+/** The chips, in alphabetical order: "The crown" under C, "The north" under N. */
 export function chipThemes(bank: Bank): Theme[] {
   const have = themesWithLines(bank);
-  return THEMES.filter((t) => have.has(t.id));
+  const sortAs = (t: Theme) => t.label.toLowerCase().replace(/^the /, '');
+  return THEMES.filter((t) => have.has(t.id)).sort((a, b) => sortAs(a).localeCompare(sortAs(b), 'en'));
 }
 
 const MAX_THEMES = 12;
