@@ -205,9 +205,10 @@ const COUPLETS: readonly Couplet[] = [
   ['call', 'contCall'],
   ['call', 'call'],
 ];
+// A last line follows a whole sentence or a name, never a bare opening: "Wherever hills and
+// valleys lie, / Now and always, strong and free" leaves the opening hanging.
 const LAST_COUPLETS: readonly Couplet[] = [
   ['address', 'close'],
-  ['lead', 'close'],
   ['state', 'close'],
   ['call', 'close'],
   ['state', 'cont'],
