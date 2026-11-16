@@ -5,14 +5,15 @@
 
 import { decodeState } from '@eurth/style';
 import type { Bank } from '../anthem/bank/types.ts';
-import { setLock, typeLine, type At } from '../anthem/edit.ts';
-import { cleanSettings, type Anthem, type Note, type Result, type Settings } from '../anthem/generate.ts';
-import type { Lexicon } from '../anthem/lexicon.ts';
+import { MOOD_IDS } from '../anthem/bank/types.ts';
+import { checkAnthem, setLock, typeLine, type At } from '../anthem/edit.ts';
+import { MAX_VERSES, cleanSettings, type Anthem, type Note, type Result, type Settings } from '../anthem/generate.ts';
+import { EMPTY_LEXICON, type Lexicon } from '../anthem/lexicon.ts';
 import { fromLinkState } from '../anthem/link.ts';
-import { KIND_PATTERN, METRES, type LineKind } from '../anthem/metre.ts';
+import { KIND_PATTERN, METRES, METRE_IDS, SCHEME_IDS, schemeFor, type LineKind } from '../anthem/metre.ts';
 import { anthemFromLyrics, mottoFits, readProfile, suggestedWords } from '../anthem/profile.ts';
 import { cleanWord, scanWord, spellOut, tokenise } from '../anthem/scan.ts';
-import { HIDDEN_THEMES, THEMES, listInWords, type Theme } from '../anthem/themes.ts';
+import { HIDDEN_THEMES, MOODS, THEMES, listInWords, type Theme } from '../anthem/themes.ts';
 
 // ------------------------------------------------------------------------------------------ notes
 
@@ -198,10 +199,11 @@ export interface FromFile {
 
 /**
  * What a profile file brings. An anthem Anthem saved comes back whole from its link; words from
- * somewhere else come back as typed lines; otherwise the nation's name, capital and largest
- * cities fill the form, ready for a first draft.
+ * somewhere else come back as typed lines (give the dictionary, and they get the metre and the
+ * rhyme scheme they keep); otherwise the nation's name, capital and largest cities fill the
+ * form, ready for a first draft.
  */
-export function fromProfile(profile: unknown, current: Settings, host: string): FromFile {
+export function fromProfile(profile: unknown, current: Settings, host: string, lex: Lexicon = EMPTY_LEXICON): FromFile {
   const from = readProfile(profile);
   const root = typeof profile === 'object' && profile !== null ? (profile as Record<string, unknown>) : {};
   const section = typeof root.anthem === 'object' && root.anthem !== null ? (root.anthem as Record<string, unknown>) : null;
@@ -219,7 +221,49 @@ export function fromProfile(profile: unknown, current: Settings, host: string): 
 
   const words = suggestedWords(from);
   const settings = cleanSettings({ ...current, country: from.country || current.country, include: words.length > 0 ? words : current.include });
-  return { settings, anthem: anthemFromLyrics(section, settings), motto: from.motto };
+  const theirs = section ? foreignAnthem(section, settings, lex) : null;
+  return theirs ? { ...theirs, motto: from.motto } : { settings, anthem: null, motto: from.motto };
+}
+
+/**
+ * An anthem written somewhere else (by hand, or by another tool): its lines come back as typed
+ * lines, under the metre and the rhyme scheme they keep best, so that the page counts them
+ * fairly. What the file says about itself (the fields Anthem writes) is believed where it is one
+ * of Anthem's own choices.
+ */
+function foreignAnthem(section: Record<string, unknown>, base: Settings, lex: Lexicon): { settings: Settings; anthem: Anthem } | null {
+  const blocks = typeof section.lyrics === 'string' ? section.lyrics.split(/\n\s*\n/).filter((b) => b.trim() !== '').length : 0;
+  if (blocks === 0) return null;
+  const mood = MOOD_IDS.find((id) => MOODS[id].toLowerCase() === section.mood) ?? base.mood;
+  const themes = Array.isArray(section.themes) ? section.themes.filter((t): t is string => typeof t === 'string' && THEMES.some((theme) => theme.id === t)) : [];
+  // Anthem's own shape is a chorus after the first verse. Words from elsewhere are all verses,
+  // unless there are more of them than Anthem has verses.
+  const chorus = blocks > MAX_VERSES;
+  const shaped: Settings = { ...base, mood, themes, chorus, verses: chorus ? blocks - 1 : blocks };
+
+  const faults = (settings: Settings): number | null => {
+    const anthem = anthemFromLyrics(section, settings);
+    if (!anthem) return null;
+    return checkAnthem(anthem, settings, lex).flat().filter((check) => !check.fits || check.rhyme === 'no').length;
+  };
+  let best: Settings | null = null;
+  let fewest = Infinity;
+  const said = { metre: METRE_IDS.find((id) => METRES[id].label.toLowerCase() === section.metre), scheme: SCHEME_IDS.find((id) => id === section.rhyme) };
+  for (const metre of said.metre ? [said.metre] : METRE_IDS) {
+    for (const scheme of said.scheme ? [said.scheme] : SCHEME_IDS) {
+      if (schemeFor(metre, scheme) !== scheme) continue;
+      const settings = { ...shaped, metre, scheme };
+      const count = faults(settings);
+      // The first to do best wins: a fixed metre before free verse, ABAB before ABCB.
+      if (count !== null && count < fewest) {
+        fewest = count;
+        best = settings;
+      }
+    }
+  }
+  if (!best) return null;
+  const settings = cleanSettings(best);
+  return { settings, anthem: anthemFromLyrics(section, settings)! };
 }
 
 // ------------------------------------------------------------------------------------- the motto

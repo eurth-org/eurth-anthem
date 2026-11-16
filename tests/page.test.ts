@@ -146,12 +146,24 @@ describe('arriving', () => {
   const calderwyn = JSON.parse(readFileSync('node_modules/@eurth/profile/examples/calderwyn.eurth.json', 'utf8')) as Record<string, unknown>;
 
   it('fills the form from a profile, and keeps words written elsewhere as typed lines', () => {
-    const from = fromProfile(calderwyn, DEFAULT_SETTINGS, 'anthem.eurth.org');
+    const from = fromProfile(calderwyn, { ...DEFAULT_SETTINGS, themes: ['crown'], metre: '7777', scheme: 'AABB' }, 'anthem.eurth.org', lex);
     expect(from.settings.country).toBe('Calderwyn');
     expect(from.settings.include.length).toBeGreaterThan(0);
     expect(from.anthem?.title).toBe('Lanterns on the Water');
     expect(from.anthem?.stanzas.flatMap((st) => st.lines).every((line) => line.typed)).toBe(true);
     expect(typeof from.motto).toBe('string');
+    // The words say nothing of the form's themes, and they keep 8.7.8.7 rhymed ABCB: two verses.
+    expect(from.settings).toMatchObject({ themes: [], metre: '8787', scheme: 'ABCB', verses: 2, chorus: false });
+    expect(from.anthem?.stanzas.map((st) => st.type)).toEqual(['verse', 'verse']);
+  });
+
+  it('believes what a file says of its anthem only where that is one of Anthem’s own choices', () => {
+    const lyrics = 'The lantern burns above the bay,\nAnd gulls are in the sky;\nOur ships go out, our ships come home,\nWith hearts and heads held high.';
+    const said = fromProfile({ ...calderwyn, anthem: { lyrics, metre: '8.6.8.6', rhyme: 'ABCB', mood: 'pastoral', themes: ['sea', 'nonsense', 7] } }, DEFAULT_SETTINGS, 'anthem.eurth.org', lex);
+    expect(said.settings).toMatchObject({ metre: '8686', scheme: 'ABCB', mood: 'pastoral', themes: ['sea'], verses: 1, chorus: false });
+    const lied = fromProfile({ ...calderwyn, anthem: { lyrics, metre: '<b>', rhyme: 'ZZZZ', mood: 'loud' } }, DEFAULT_SETTINGS, 'anthem.eurth.org', lex);
+    expect(lied.settings).toMatchObject({ metre: '8686', scheme: 'ABCB', mood: 'solemn' });
+    expect(fromProfile({ ...calderwyn, anthem: { lyrics: 'One line only' } }, DEFAULT_SETTINGS, 'anthem.eurth.org', lex).anthem).toBeNull();
   });
 
   it('opens an anthem from its own link in the file, and from no other site', () => {

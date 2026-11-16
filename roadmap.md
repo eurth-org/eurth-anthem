@@ -6,15 +6,14 @@ Three parts: what comes next, what each release added (newest first), and what's
 
 ## Where to pick up
 
-**16 November 2026.** The engine, the words and the site are all built and pushed. `npm run check`, `npm run build`, `npm test` (209 tests, about 5,000 anthems), `npm run axe` (no findings) and `npm run smoke` all pass on this machine.
+**16 November 2026.** The engine, the words and the site are all built and pushed, and CI is green on `main`: types, the build, 210 tests (about 5,000 anthems), axe with no findings, the smoke test in real Chrome, and Lighthouse on all four pages. Nothing is deployed: the door is closed until 21 December.
 
 What is left before the door, in order:
 
 1. **Stijn's review of the phrase banks.** All eleven batches are drafted, 1,953 lines, in `src/anthem/bank/`, each with its page in `content/review/`. **None is marked reviewed.** Apply his notes on a batch as they come, and set `reviewed: true` in its file only when he says so. This is the one thing that blocks the launch: a build for the door ships reviewed batches only, and `tools/build-bank.ts` stops the build if those can't write a whole anthem. The launch workflow would fail on the evening of 20 December rather than ship an unreviewed line. Try it with `ANTHEM_BANK=reviewed npm run generate`.
 2. **Stijn's read of the guide and the glossary** (`content/guide.md`, `content/glossary.md`, or the pages themselves with `npm run preview`).
 3. **After the reviews:** freeze the examples again (`npm run examples -- --all`, then look at each: `-- --find <id> 3` shows other seeds), make the images again (`npm run images`), and raise the re-roll floor in `tests/generate.test.ts` to 0.9 by giving a third word to the rhyme sounds that still have two.
-4. **Look at the first CI run on `main`** (it adds Lighthouse, which this machine hasn't run) and fix what it finds.
-5. **Try it by hand** on a phone and with a screen reader: Edit lines, the print sheet, the pictures in each size, a profile file loaded and saved.
+4. **Try it by hand** on a phone and with a screen reader: Edit lines, the print sheet, the pictures in each size, a profile file loaded and saved. (Tried by script in real Chrome on 16 November: every picture size and format, the print sheet on one page, the link bringing the words back, Calderwyn's profile loaded and saved with every other section untouched.)
 
 Handy while writing the banks:
 
@@ -96,12 +95,12 @@ Plain TypeScript in `src/anthem/`, data in `src/anthem/bank/` and `data/`, tests
 14. Start from the starter template in eurth-style; read HANDBOOK.md first, and where it differs from this plan, the handbook wins. **Done** (@eurth/style 1.3.0, @eurth/profile 1.0.1). `npm run generate` runs before `dev`, `build`, `check` and `test`.
 15. Pages: Generator, Examples, Guide, Glossary, with titles ("Anthem: free online national anthem maker for worldbuilders"), descriptions, canonical links, JSON-LD, sitemap.xml, robots.txt, llms.txt and the Open Graph image. **Done.** The Glossary prints the dictionary's licence in full. Its link to the dictionary goes to the encyclopedia article until 25 December, since the dictionary's home is on GitHub and no page links there before then; the build switches by itself.
 16. The tool, as a Svelte 5 island, after the mock-up (`src/ui/`): country, theme chips, a theme of your own, mood, metre, verses, rhyme, the chorus switch, words to include with "How do you say it?", Write lyrics; the sheet with the metre shown; and in Edit lines, on every line a field to type over it, a button to write it again and a lock, with the syllable count beside it as a number and a word ("8 of 8, fits. Rhymes with line 3."), never colour alone. **Done.** AABB is greyed out for 8.7.8.7 with the reason beside it.
-17. Save and load: the link, and the profile file (file picker and drag and drop, from @eurth/profile). **Done.** A file with an anthem Anthem saved opens it from its link (a link to this site only); words from elsewhere come back as typed lines; otherwise the name, the capital and the largest cities fill the form and a first draft is written. A motto that fits a line is offered as one.
+17. Save and load: the link, and the profile file (file picker and drag and drop, from @eurth/profile). **Done.** A file with an anthem Anthem saved opens it from its link (a link to this site only); words from elsewhere come back as typed lines, under the metre and rhyme scheme they keep best; otherwise the name, the capital and the largest cities fill the form and a first draft is written. A motto that fits a line is offered as one.
 18. Exports: Copy lyrics, the lyric sheet as SVG, PNG and WebP in the handbook's sizes, a print stylesheet for one sheet of A4 or Letter, Copy wikitext, Copy link, Copy picture, Copy description, and the Share dialog. **Done.** The picture follows the theme in use; the printed sheet is always dark ink on plain paper.
 19. Delight: the lines appear one by one, as if being sung, each in under half a second and timed to its syllables, skipped by any key or click and all at once for reduced motion; the emu theme, found by typing "emu" as a theme of your own; the suite's own touches from @eurth/style. **Done.**
-20. Offline, install, security headers, axe and the smoke test, as the handbook asks. **Done:** both files of words are kept by the service worker. **Lighthouse is still to be seen** on the first CI run.
+20. Offline, install, security headers, axe and the smoke test, as the handbook asks. **Done:** both files of words are kept by the service worker, and Lighthouse passes in CI.
 21. CI, and the launch workflow: `LAUNCH_AT` is `2026-12-21T00:00:00+01:00`, the scheduled run starts at 22:30 UTC on 20 December, and it also runs by hand. No custom domain and no workers.dev deploy before then. **Done;** delete `launch.yml` once the tool is live.
-22. README (use, development, deployment), docs/feedback-log.md, and the handbook's checklist. **Done but for the checklist's last lines:** CI green, deployed at its door, Lighthouse passing.
+22. README (use, development, deployment), docs/feedback-log.md, and the handbook's checklist. **Done but for the checklist's last line:** deployed at its door.
 
 ### After launch
 

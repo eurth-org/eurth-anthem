@@ -108,7 +108,9 @@
   const saved = $derived.by(() => {
     const base = profile ?? (written.country === '' ? null : createProfile(written.country));
     if (!base) return null;
-    return setSection(base, 'anthem', anthemSection(anthem, written, link, getSection(base, 'anthem')) as never);
+    // The file holds the anthem's address on the site itself, wherever this page is being tried.
+    const home = stateLink(toLinkState(written, anthem), { base: `${siteUrl}/` });
+    return setSection(base, 'anthem', anthemSection(anthem, written, home, getSection(base, 'anthem')) as never);
   });
 
   // ------------------------------------------------------------------- the bank and the dictionary
@@ -309,12 +311,12 @@
 
   async function loaded(next: EurthProfile) {
     profile = next;
-    const from = fromProfile(next, form, siteHost);
+    // Words written elsewhere are counted with the dictionary, to find the metre they keep.
+    const from = fromProfile(next, form, siteHost, await loadLexicon());
     const name = from.settings.country || next.meta.nation || 'Your nation';
     form = copyOf(from.settings);
     includeText = form.include.join(', ');
     motto = from.motto;
-    if (motto !== '') void loadLexicon();
     if (from.anthem) {
       written = cleanSettings(from.settings);
       anthem = from.anthem;
@@ -803,9 +805,15 @@
     }
   }
 
+  /* On a phone the cards give their room to the words. */
   @media (max-width: 480px) {
-    .sheet {
+    .controls,
+    .result {
       padding: var(--space-4);
+    }
+
+    .sheet {
+      padding: var(--space-3);
     }
   }
 

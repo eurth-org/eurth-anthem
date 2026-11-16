@@ -98,6 +98,28 @@
     color: var(--caution-text);
   }
 
+  /* On a narrow sheet the field takes the whole width, and the buttons sit under it. */
+  @media (max-width: 600px) {
+    .row input {
+      grid-column: 1 / -1;
+    }
+
+    .row button {
+      grid-row: 2;
+      grid-column: 2;
+    }
+
+    .row button:last-of-type {
+      grid-column: 3;
+    }
+
+    .note {
+      grid-row: 2;
+      grid-column: 1;
+      align-self: center;
+    }
+  }
+
   .note :global(svg) {
     flex: none;
     width: var(--space-3);
