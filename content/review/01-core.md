@@ -623,7 +623,7 @@ A tag after a phrase limits it: `#sea` only when that theme is chosen, `@march` 
 | L454 | [name], our [ours] | Kelomartha, our song | a name that goes da-DUM-da-DUM |
 | L455 | Tomorrow and today | Tomorrow and today |  |
 | L456 | And this shall be our home | And this shall be our home |  |
-| L457 | And may it never cease | And may it never cease |  |
+| L457 | May friendship never cease | May friendship never cease |  |
 | L458 | In every heart the same | In every heart the same |  |
 | L459 | One people, side by side | One people, side by side |  |
 
@@ -763,7 +763,7 @@ Twenty choruses and twenty verses, made by the generator from the bank as it sta
 > Beneath the wide and open sky,  
 > O grant us lasting peace;  
 > O Valderona, land of truth,  
-> And may it never cease.
+> May friendship never cease.
 
 **8.6.8.6, ABCB, solemn, verse**
 

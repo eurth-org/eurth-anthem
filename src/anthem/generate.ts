@@ -340,8 +340,9 @@ function templateWeight(ctx: Ctx, used: Used, spec: Spec, t: Template): number {
     if (eligibleItems(ctx, cls).length === 0) return 0;
     if (part.open && thingsFor(ctx, used, cls).length > 0) w *= 3;
   }
-  if (spec.focus !== null && t.themes.includes(spec.focus)) w *= 4;
-  else if (t.themes.length > 0) w *= 2;
+  // A chosen theme should be heard in every stanza, most of all the one the stanza leans on.
+  if (spec.focus !== null && t.themes.includes(spec.focus)) w *= 8;
+  else if (t.themes.length > 0) w *= 4;
   if (t.moods.length > 0) w *= 2;
   if (t.chorus === 'only') w *= 4;
   if (used.templates.has(t.id)) w *= 0.01;
@@ -678,7 +679,8 @@ function writeTitle(ctx: Ctx, stanzas: readonly Stanza[]): string {
     if (t.parts.some((p) => 'name' in p) && country === '') return false;
     return t.parts.every((p) => !('cls' in p) || eligibleItems(ctx, ctx.bank.classes[p.cls]!).length > 0);
   });
-  const template = pick(ctx.rand, usable, (t) => (t.themes.length > 0 ? 3 : 1));
+  // An anthem on the sea should be called something of the sea.
+  const template = pick(ctx.rand, usable, (t) => (t.themes.length > 0 ? 8 : 1));
   if (!template) return country === '' ? 'Anthem' : titleCase(`Song of ${country}`);
   const taken = new Set<string>();
   let text = '';

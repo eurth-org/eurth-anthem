@@ -572,7 +572,7 @@ export const core: BatchSource = {
 
     'close I6 | Tomorrow and today',
     'close I6 | And this shall be our home',
-    'close I6 | And may it never cease',
+    'close I6 | May friendship never cease',
     'close I6 | In every heart the same',
     'close I6 | One people, side by side',
 

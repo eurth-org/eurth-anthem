@@ -76,6 +76,21 @@ describe('the phrase bank', () => {
     }
   });
 
+  it('has lines in every line shape for every theme it writes for', () => {
+    const themes = new Set(bank.templates.flatMap((t) => t.themes));
+    for (const theme of themes) {
+      if (theme === 'emu') continue;
+      for (const kind of ['T8', 'T7', 'I8', 'I6'] as const) {
+        const lines = bank.templates.filter((t) => t.kind === kind && t.themes.includes(theme));
+        expect(lines.length, `${theme} lines in ${kind}`).toBeGreaterThanOrEqual(5);
+      }
+      // And a last line in each shape that can end a stanza.
+      for (const kind of ['T7', 'I8', 'I6'] as const) {
+        expect(bank.templates.some((t) => t.kind === kind && t.role === 'close' && t.themes.includes(theme)), `a last ${theme} line in ${kind}`).toBe(true);
+      }
+    }
+  });
+
   it('marks which slots may take the words a person asks for', () => {
     const open = bank.templates.flatMap((t) => t.parts.filter((p) => 'cls' in p && p.open).map(() => t.source));
     expect(open.length).toBeGreaterThan(5);
