@@ -479,7 +479,7 @@
       <p class="eu-help" id="rhyme-help">AABB is off for 8.7.8.7: its long lines end on a weak beat and its short lines on a strong one, and those never truly rhyme.</p>
     {/if}
 
-    <label class="eu-pill chorus">
+    <label class="eu-pill chorus-switch">
       <input type="checkbox" bind:checked={form.chorus} />
       <span class="eu-check"><Icon icon={faCheck} /></span>
       A chorus after the first verse
@@ -666,8 +666,9 @@
     gap: var(--space-3);
   }
 
-  .chorus {
-    justify-content: flex-start;
+  /* A switch the width of its words, not of the form. */
+  .chorus-switch {
+    align-self: flex-start;
   }
 
   .say {
