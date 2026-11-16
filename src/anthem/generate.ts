@@ -358,7 +358,7 @@ function templateWeight(ctx: Ctx, used: Used, spec: Spec, t: Template): number {
   return w;
 }
 
-function itemWeight(ctx: Ctx, used: Used, spec: Spec, item: Item): number {
+function itemWeight(used: Used, spec: Spec, item: Item): number {
   let w = 1;
   if (item.themes.length > 0) w *= spec.focus !== null && item.themes.includes(spec.focus) ? 7 : 3;
   if (item.moods.length > 0) w *= 1.5;
@@ -389,7 +389,7 @@ function candidates(ctx: Ctx, used: Used, spec: Spec): Cand[] {
       continue;
     }
     const items = eligibleItems(ctx, cls);
-    const weights = items.map((item) => itemWeight(ctx, used, spec, item));
+    const weights = items.map((item) => itemWeight(used, spec, item));
     const total = weights.reduce((a, b) => a + b, 0) || 1;
     const spelt = wordsOf(t);
     items.forEach((item, i) => {
@@ -471,7 +471,7 @@ function write(ctx: Ctx, used: Used, spec: Spec, cand: Cand): string | null {
         continue;
       }
     }
-    const item = pick(ctx.rand, eligibleItems(ctx, cls).filter((it) => !inLine.has(it.text)), (it) => itemWeight(ctx, used, spec, it));
+    const item = pick(ctx.rand, eligibleItems(ctx, cls).filter((it) => !inLine.has(it.text)), (it) => itemWeight(used, spec, it));
     if (!item) return null;
     inLine.add(item.text);
     used.phrases.set(item.text, (used.phrases.get(item.text) ?? 0) + 1);

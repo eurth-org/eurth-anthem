@@ -3,24 +3,48 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "Anthem: a national anthem lyrics generator for fictional nations, by Eurth. The engine and the phrase banks; the site comes with @eurth/style.",
+  "description": "Anthem: a free online national anthem lyrics generator for fictional nations, by Eurth. Static Astro site with a Svelte tool, on Cloudflare Workers.",
   "engines": {
     "node": ">=22"
   },
   "scripts": {
-    "dict": "node tools/build-dict.mjs",
-    "check": "tsc --noEmit",
-    "pretest": "node tools/build-dict.mjs",
+    "generate": "node tools/build-dict.mjs && node --experimental-strip-types --disable-warning=ExperimentalWarning tools/build-bank.ts",
+    "predev": "npm run generate",
+    "dev": "astro dev",
+    "prebuild": "npm run generate",
+    "build": "astro build",
+    "preview": "npm run build && wrangler dev",
+    "precheck": "npm run generate",
+    "check": "astro check && svelte-check",
+    "pretest": "npm run generate",
     "test": "vitest run",
+    "axe": "eurth-axe dist",
+    "smoke": "eurth-smoke",
+    "images": "node tools/make-images.mjs",
+    "deploy": "npm run build && wrangler deploy",
+    "dict": "node tools/build-dict.mjs",
     "review": "node --experimental-strip-types --disable-warning=ExperimentalWarning tools/review.ts",
     "sample": "node --experimental-strip-types --disable-warning=ExperimentalWarning tools/sample.ts",
     "depth": "node --experimental-strip-types --disable-warning=ExperimentalWarning tools/depth.ts",
     "sheet": "node --experimental-strip-types --disable-warning=ExperimentalWarning tools/sheet.ts",
-    "content": "node --experimental-strip-types --disable-warning=ExperimentalWarning tools/content.ts"
+    "content": "node --experimental-strip-types --disable-warning=ExperimentalWarning tools/content.ts",
+    "examples": "node --experimental-strip-types --disable-warning=ExperimentalWarning tools/examples.ts"
+  },
+  "dependencies": {
+    "@astrojs/svelte": "^9.1.6",
+    "@eurth/profile": "github:eurth-org/eurth-profile#semver:^1",
+    "@eurth/style": "github:eurth-org/eurth-style#semver:^1",
+    "@fortawesome/free-brands-svg-icons": "^7.3.1",
+    "@fortawesome/free-solid-svg-icons": "^7.3.1",
+    "astro": "^7.4.12",
+    "svelte": "^5.57.3"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.12",
     "@types/node": "^22.10.0",
+    "svelte-check": "^4.7.8",
     "typescript": "^6.0.3",
-    "vitest": "^5.0.5"
+    "vitest": "^5.1.0",
+    "wrangler": "^4.162.0"
   }
 }

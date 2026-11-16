@@ -1,0 +1,88 @@
+---
+// Examples: anthems of made-up nations, one for every metre and rhyme scheme. Each was written
+// by the generator and frozen as its link, so it reads the same while the phrase banks change;
+// one is written by hand. The links are made at build time with the same code the generator uses.
+import { encodeState } from '@eurth/style';
+import Page from '@eurth/style/components/Page.astro';
+import { site } from '../../eurth.config.mjs';
+import { EXAMPLES } from '../anthem/examples.ts';
+import { LINK_VERSION } from '../anthem/link.ts';
+import { METRES, schemeFor } from '../anthem/metre.ts';
+import { MOODS } from '../anthem/themes.ts';
+
+const description = 'Example national anthems for fictional nations, one in every hymn metre and rhyme scheme: 8.7.8.7, common metre, sevens and free verse. Open one and make it yours.';
+const cards = EXAMPLES.map((e) => {
+  const first = e.anthem.stanzas.find((st) => st.type === 'verse')!;
+  const more = e.anthem.stanzas.length - 1;
+  return {
+    ...e,
+    first,
+    href: `/?d=${encodeState(e.state, LINK_VERSION)}`,
+    shape: `${e.settings.metre === 'free' ? 'Free verse' : METRES[e.settings.metre].label} · ${schemeFor(e.settings.metre, e.settings.scheme)} · ${MOODS[e.settings.mood]}`,
+    rest: more === 0 ? '' : more === 1 ? 'One more stanza in the generator.' : `${more} more stanzas in the generator.`,
+  };
+});
+---
+
+<Page site={site} title="Example national anthems" description={description} crumbs={[{ name: 'Examples', path: '/examples/' }]}>
+  <div class="eu-stack">
+    <header class="eu-prose">
+      <p class="eu-kicker">Examples</p>
+      <h1>Example national anthems</h1>
+      <p class="eu-lead">Nations that don’t exist, and what they sing: one anthem for every metre and rhyme scheme. Open any of them in the <a href="/">generator</a> and change what you like. The <a href="/guide/">guide</a> explains the metres.</p>
+    </header>
+    <ul class="gallery">
+      {
+        cards.map((card) => (
+          <li>
+            <a class="eu-card" href={card.href}>
+              <p class="eu-kicker">{card.shape}</p>
+              <h2>{card.anthem.title}</h2>
+              <p class="eu-muted whose">National anthem of {card.nation}{card.byHand ? ' · written by hand' : ''}</p>
+              <p class="verse">
+                {card.first.lines.map((line) => <span>{line.text}</span>)}
+              </p>
+              <p class="eu-muted">{card.note} {card.rest}</p>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</Page>
+
+<style>
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-4);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .gallery li {
+    display: flex;
+  }
+
+  .gallery a {
+    flex: 1;
+  }
+
+  .gallery h2 {
+    margin: 0;
+    font: var(--type-heading);
+  }
+
+  .gallery p {
+    margin: 0;
+  }
+
+  .verse {
+    font: var(--type-body);
+  }
+
+  .verse span {
+    display: block;
+  }
+</style>

@@ -110,7 +110,7 @@ export function layoutSheet(anthem: Anthem, rawSettings: Settings, options: Shee
   const { width, height } = size;
   const margin = Math.round(Math.min(width, height) * 0.075);
   const inner = width - margin * 2;
-  const verseNumbers = anthem.stanzas.map((stanza, i) => anthem.stanzas.slice(0, i + 1).filter((st) => st.type === 'verse').length);
+  const verseNumbers = anthem.stanzas.map((_, i) => anthem.stanzas.slice(0, i + 1).filter((st) => st.type === 'verse').length);
   const totalVerses = anthem.stanzas.filter((st) => st.type === 'verse').length;
 
   const whose = settings.country === '' ? 'A national anthem' : `National anthem of ${settings.country}`;

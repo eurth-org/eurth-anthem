@@ -1,0 +1,82 @@
+---
+// The glossary: each term has an id to link to, and the whole set is given to search engines
+// as a DefinedTermSet. The words live in src/content/glossary.ts. This page also carries the
+// credit and the licence of the pronunciation dictionary, as that licence asks.
+import { readFileSync } from 'node:fs';
+import { definedTermSet, githubLinksAllowed, ref, wikipedia } from '@eurth/style/build';
+import Page from '@eurth/style/components/Page.astro';
+import { site } from '../../eurth.config.mjs';
+import { DICTIONARY_CREDIT, GLOSSARY, GLOSSARY_DESCRIPTION, GLOSSARY_TITLE, termId } from '../content/glossary.ts';
+
+const terms = GLOSSARY.flatMap((group) => group.terms.map((t) => ({ id: termId(t.term), term: t.term, definition: t.text })));
+const licence = readFileSync(DICTIONARY_CREDIT.licenceFile, 'utf8').trim();
+// The dictionary's home is a GitHub repository, and no Eurth page links to GitHub before
+// 25 December 2026 (HANDBOOK.md, Shell). Until then the link goes to its encyclopedia article.
+const home = githubLinksAllowed() ? ref(DICTIONARY_CREDIT.url, site.host) : wikipedia('CMU Pronouncing Dictionary', site.host);
+---
+
+<Page
+  site={site}
+  title={GLOSSARY_TITLE}
+  description={GLOSSARY_DESCRIPTION}
+  crumbs={[{ name: 'Glossary', path: '/glossary/' }]}
+  jsonld={[definedTermSet(site, { name: GLOSSARY_TITLE, path: '/glossary/', terms })]}
+>
+  <article class="eu-prose">
+    <p class="eu-kicker">Glossary</p>
+    <h1>{GLOSSARY_TITLE}</h1>
+    <p class="eu-lead">
+      The words Anthem uses, in a sentence or two each. The <a href="/guide/">guide</a> shows how they fit together; the <a href="/">generator</a> puts them to work.
+    </p>
+
+    <nav aria-label="In this glossary">
+      <ul class="contents">
+        {GLOSSARY.map((group) => <li><a href={`#${group.id}-terms`}>{group.title}</a></li>)}
+        <li><a href="#dictionary">The pronunciation dictionary</a></li>
+      </ul>
+    </nav>
+
+    {
+      GLOSSARY.map((group) => (
+        <>
+          <h2 id={`${group.id}-terms`}>{group.title}</h2>
+          <p>{group.intro}</p>
+          <dl>
+            {group.terms.map((t) => (
+              <>
+                <dt id={termId(t.term)}>
+                  {t.term}
+                  {t.also && <span class="eu-muted also"> (also: {t.also})</span>}
+                </dt>
+                <dd>{t.text}</dd>
+              </>
+            ))}
+          </dl>
+        </>
+      ))
+    }
+
+    <h2 id="dictionary">The pronunciation dictionary</h2>
+    <p>{DICTIONARY_CREDIT.text}</p>
+    <p><a href={home}>{DICTIONARY_CREDIT.name}</a> ({DICTIONARY_CREDIT.short}) is shared under {DICTIONARY_CREDIT.licence}, which asks that its notice travels with every copy. Here it is in full.</p>
+    <pre class="eu-data eu-scroll licence" tabindex="0" role="region" aria-label="The licence of the CMU Pronouncing Dictionary">{licence}</pre>
+  </article>
+</Page>
+
+<style>
+  /* A list of links, not links in a sentence: each is tall enough to press. */
+  .contents a {
+    display: inline-flex;
+    align-items: center;
+    min-width: var(--size-target);
+    min-height: var(--size-target);
+  }
+
+  .also {
+    font-weight: 400;
+  }
+
+  .licence {
+    white-space: pre-wrap;
+  }
+</style>

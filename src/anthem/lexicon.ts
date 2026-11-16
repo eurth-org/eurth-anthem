@@ -31,52 +31,71 @@ export const EMPTY_LEXICON: Lexicon = {
 
 const ENTRY = /^([a-z']+?)(\d+)([a-x]*)(?:\.(\d+))?$/;
 
-/** Reads the text of lexicon.txt. Lines that don't parse are skipped, never thrown on. */
-export function parseLexicon(text: string): Lexicon {
+/** Builds a lexicon a piece at a time, so a page can read the table without holding up the person. */
+export interface LexiconBuilder {
+  /** Takes some whole lines of lexicon.txt. Lines that don't parse are skipped, never thrown on. */
+  add(lines: readonly string[]): void;
+  finish(): Lexicon;
+}
+
+export function lexiconBuilder(): LexiconBuilder {
   const words = new Map<string, Pron[]>();
   const ranks = new Map<Pron, number>();
   let unordered = false;
   const groups = new Map<string, string>();
-  for (const line of text.split('\n')) {
-    const tab = line.indexOf('\t');
-    if (tab <= 0) continue;
-    const tail = line.slice(0, tab);
-    const rest = line.slice(tab + 1);
-    groups.set(tail, rest);
-    for (const item of rest.split(' ')) {
-      const m = ENTRY.exec(item);
-      if (!m) continue;
-      const word = m[1]!;
-      const pron: Pron = { stress: m[2]!, tail, onset: m[3]! };
-      if (m[4]) {
-        ranks.set(pron, Number(m[4]));
-        unordered = true;
-      }
-      const list = words.get(word);
-      if (list) list.push(pron);
-      else words.set(word, [pron]);
-    }
-  }
-  // The usual way of saying a word comes first.
-  if (unordered) {
-    for (const list of words.values()) {
-      if (list.length > 1) list.sort((a, b) => (ranks.get(a) ?? 0) - (ranks.get(b) ?? 0));
-    }
-  }
   return {
-    get: (word) => words.get(word),
-    rhymes(tail) {
-      const rest = groups.get(tail);
-      if (!rest) return [];
-      const out = new Set<string>();
-      for (const item of rest.split(' ')) {
-        const m = ENTRY.exec(item);
-        if (m) out.add(m[1]!);
+    add(lines) {
+      for (const line of lines) {
+        const tab = line.indexOf('\t');
+        if (tab <= 0) continue;
+        const tail = line.slice(0, tab);
+        const rest = line.slice(tab + 1);
+        groups.set(tail, rest);
+        for (const item of rest.split(' ')) {
+          const m = ENTRY.exec(item);
+          if (!m) continue;
+          const word = m[1]!;
+          const pron: Pron = { stress: m[2]!, tail, onset: m[3]! };
+          if (m[4]) {
+            ranks.set(pron, Number(m[4]));
+            unordered = true;
+          }
+          const list = words.get(word);
+          if (list) list.push(pron);
+          else words.set(word, [pron]);
+        }
       }
-      return [...out];
     },
-    size: words.size,
+    finish() {
+      // The usual way of saying a word comes first.
+      if (unordered) {
+        for (const list of words.values()) {
+          if (list.length > 1) list.sort((a, b) => (ranks.get(a) ?? 0) - (ranks.get(b) ?? 0));
+        }
+      }
+      return {
+        get: (word) => words.get(word),
+        rhymes(tail) {
+          const rest = groups.get(tail);
+          if (!rest) return [];
+          const out = new Set<string>();
+          for (const item of rest.split(' ')) {
+            const m = ENTRY.exec(item);
+            if (m) out.add(m[1]!);
+          }
+          return [...out];
+        },
+        size: words.size,
+      };
+    },
   };
+}
+
+/** Reads the text of lexicon.txt in one go. */
+export function parseLexicon(text: string): Lexicon {
+  const builder = lexiconBuilder();
+  builder.add(text.split('\n'));
+  return builder.finish();
 }
 
 /** True for a vowel sound in a tail. */

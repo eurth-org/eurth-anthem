@@ -1,0 +1,117 @@
+---
+// The generator, and under it what search engines and newcomers both want: what it is, how to
+// use it, and answers to the usual questions (also given to search engines as structured data).
+import { readFileSync } from 'node:fs';
+import { faqPage, webApplication } from '@eurth/style/build';
+import Page from '@eurth/style/components/Page.astro';
+import { site } from '../../eurth.config.mjs';
+import type { Bank } from '../anthem/bank/types.ts';
+import { EXAMPLES } from '../anthem/examples.ts';
+import Generator from '../ui/Generator.svelte';
+import { chipThemes } from '../ui/page.ts';
+
+// The themes that get a chip are the ones the shipped bank has lines for.
+const bank = JSON.parse(readFileSync('src/anthem/generated/bank.json', 'utf8')) as Bank;
+const themes = chipThemes(bank);
+const first = EXAMPLES[0]!;
+
+const steps = [
+  { name: 'Name your country and pick its themes', text: 'The sea, the mountains, freedom, the harvest, the crown: choose what your nation would sing about, and the mood it would sing in, from a solemn hymn to a martial march.' },
+  { name: 'Choose a metre and a rhyme scheme', text: 'A hymn metre such as 8.7.8.7 or common metre sets the number of syllables in each line, so the words can be sung to any tune of that metre. Then the verses, one to four, and whether there is a chorus.' },
+  { name: 'Add your own words', text: 'Your capital, a river, a founder: Anthem works out how each is said and fits it into a line where the beat allows. For a made-up name, tell it where the stress falls.' },
+  { name: 'Write, then make it yours', text: 'Press Write lyrics. Write any line again, lock the ones you like, or type over a line with your own; the syllable count beside it tells you whether it still fits the tune.' },
+  { name: 'Take it with you', text: 'Copy the lyrics, a lyric sheet as a picture, wikitext for your nation’s page, or a link that holds every word. Print it on one sheet, or save it in your nation’s profile file.' },
+];
+
+const faq = [
+  { q: 'Is Anthem free?', a: 'Yes. There is no account, no watermark and no paid tier. It is made by the Eurth worldbuilding community for anyone who needs an anthem for a nation that doesn’t exist.' },
+  { q: 'Does Anthem use AI to write the lyrics?', a: 'No. Every line comes from phrase banks written for Anthem, put together in your browser by fixed rules of metre and rhyme. There is no language model and no writing service, and nothing you type is sent anywhere.' },
+  { q: 'Are the lyrics original? Who owns them?', a: 'The phrase banks are original writing: nothing is quoted or adapted from a real anthem, hymn or song. What you make is yours to use in a wiki, a novel, a game or a campaign, and Anthem keeps no copy. The banks are shared, though, so another nation may sing a line you recognise. Type over the lines that matter most.' },
+  { q: 'What do 8.7.8.7 and the other metres mean?', a: 'A hymn metre is the number of syllables in each line of a verse. 8.7.8.7 is four lines of eight, seven, eight and seven syllables; 8.6.8.6 is common metre, the metre of most ballads; 7.7.7.7 has seven in every line. Free verse lets each stanza take its own shape.' },
+  { q: 'Can the anthem be sung?', a: 'Yes, and that is the point of the metre. Words in a hymn metre fit any hymn tune of the same metre and beat, so you can borrow a tune from a hymn book or write your own. Anthem checks every line for its syllables and for where the stress falls.' },
+  { q: 'My country’s name is made up. How does Anthem know how to say it?', a: 'It guesses from the spelling and shows you the guess, split into syllables with the stressed one in capitals. If the guess is wrong, set the number of syllables and the stress under “How do you say it?”, and the anthem is written round your answer.' },
+  { q: 'Why can’t I rhyme 8.7.8.7 as AABB?', a: 'In 8.7.8.7 the long lines end on a weak beat and the short lines on a strong one. AABB would rhyme a long line with the short line after it, and a weak ending never truly rhymes with a strong one. Choose ABAB or ABCB, or another metre.' },
+  { q: 'Where is my anthem saved?', a: 'In its link. The link holds every word, so copying the link is saving it: paste it into a forum post, a note or a bookmark. You can also save your nation as a profile file that the other Eurth tools can read. Nothing is kept in your browser or on a server.' },
+  { q: 'Can I use it for NationStates, IIWiki, D&D or my novel?', a: 'That is what it was made for. Anthem comes from Eurth, a worldbuilding and roleplay community that began on NationStates in 2004. Copy wikitext gives you an anthem section ready to paste into a wiki page.' },
+  { q: 'Does it work offline, and on a phone?', a: 'Yes to both. After the first visit the site keeps a copy of itself on your device, pronunciation dictionary included, and opens without a connection.' },
+];
+
+const featureList = [
+  'Original lyrics in a chosen hymn metre: 8.7.8.7, 8.6.8.6, 7.7.7.7 or free verse',
+  'Rhyme schemes ABAB, AABB and ABCB, with true rhymes only',
+  `${themes.length} themes and four moods`,
+  'Your own words fitted to the beat, with stress you can correct',
+  'Write a line again, lock it, or type over it with a live syllable count',
+  'Lyric sheet as SVG, PNG or WebP, and a printable sheet',
+  'Wikitext for a wiki page',
+  'A link that holds every word',
+  'Nation profile file, shared with the other Eurth tools',
+  'No AI and no requests: everything runs in the browser, and works offline',
+];
+---
+
+<Page site={site} jsonld={[webApplication(site, { featureList, screenshot: `${site.url}/og.png` }), faqPage(faq)]}>
+  <div class="eu-stack">
+    <header class="eu-stack intro screen-only">
+      <p class="eu-kicker">Anthem, by Eurth</p>
+      <h1>Anthem maker: write a national anthem for your fictional nation</h1>
+      <p class="eu-lead">Original lyrics in a real hymn metre, so they can be sung. Pick the themes, the mood and the rhyme scheme; every line scans. Free, in your browser, no account and no AI.</p>
+    </header>
+
+    <!-- client:load draws the generator as real HTML first, then wakes it up. -->
+    <Generator client:load initial={{ settings: first.settings, anthem: first.anthem }} themes={themes} siteName={site.name} siteUrl={site.url} siteHost={site.host} />
+
+    <section class="eu-prose screen-only">
+      <h2>How it works</h2>
+      <ol>
+        {steps.map((step) => <li><strong>{step.name}.</strong> {step.text}</li>)}
+      </ol>
+      <p>
+        New to hymn metres? The <a href="/guide/">guide</a> explains what anthems say and how to make words fit a tune, the <a href="/glossary/">glossary</a> has the terms, and the
+        <a href="/examples/">examples</a> show an anthem in every metre and rhyme scheme.
+      </p>
+
+      <h2>Questions</h2>
+      <dl>
+        {
+          faq.map((item) => (
+            <>
+              <dt>{item.q}</dt>
+              <dd>{item.a}</dd>
+            </>
+          ))
+        }
+      </dl>
+    </section>
+  </div>
+
+  <Fragment slot="inspirations">
+    Anthem takes after the metrical index at the back of a hymn book. It counts syllables and finds rhymes with the <a href="/glossary/#dictionary">CMU Pronouncing Dictionary</a>.
+  </Fragment>
+</Page>
+
+<style>
+  .intro {
+    gap: var(--space-2);
+  }
+</style>
+
+<style is:global>
+  /* Printing gives the lyric sheet and nothing else: the shell and the page's own text stay off
+     the paper, and the paper stays plain. */
+  @media print {
+    body > :not(main),
+    .screen-only {
+      display: none !important;
+    }
+
+    html,
+    body {
+      background: var(--paper);
+    }
+
+    @page {
+      margin: 18mm;
+    }
+  }
+</style>

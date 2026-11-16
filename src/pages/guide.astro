@@ -1,0 +1,175 @@
+---
+// The guide: how to write a national anthem, with sources and the day it was last brought up
+// to date. The words live in src/content/guide.ts, where tests hold the example verses to
+// their metre; this page only lays them out. Search engines get the breadcrumb, the article's
+// date and the questions as structured data.
+import { article, faqPage, ref, wikipedia } from '@eurth/style/build';
+import Page from '@eurth/style/components/Page.astro';
+import { site } from '../../eurth.config.mjs';
+import { METRES } from '../anthem/metre.ts';
+import { EXAMPLES, GUIDE, GUIDE_DESCRIPTION, GUIDE_FAQ, GUIDE_HEADLINE, GUIDE_LEAD, GUIDE_UPDATED, SOURCES } from '../content/guide.ts';
+
+const title = 'How to write a national anthem';
+const updated = new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(`${GUIDE_UPDATED}T12:00:00Z`));
+const example = (id: string) => EXAMPLES.find((e) => e.id === id)!;
+const faq = GUIDE_FAQ.map((item) => ({ q: item.question, a: item.answer }));
+---
+
+<Page
+  site={site}
+  title={title}
+  description={GUIDE_DESCRIPTION}
+  crumbs={[{ name: 'Guide', path: '/guide/' }]}
+  jsonld={[article(site, { headline: GUIDE_HEADLINE, path: '/guide/', description: GUIDE_DESCRIPTION, updated: GUIDE_UPDATED }), faqPage(faq)]}
+>
+  <article class="eu-prose guide">
+    <p class="eu-kicker">Guide</p>
+    <h1>{title}</h1>
+    <p class="eu-lead">{GUIDE_LEAD}</p>
+
+    <nav aria-label="In this guide">
+      <ol class="contents">
+        {GUIDE.map((section) => <li><a href={`#${section.id}`}>{section.heading}</a></li>)}
+        <li><a href="#questions">Questions</a></li>
+        <li><a href="#sources">Sources</a></li>
+      </ol>
+    </nav>
+
+    {
+      GUIDE.map((section) => (
+        <>
+          <h2 id={section.id}>{section.heading}</h2>
+          {section.blocks.map((block) => {
+            if ('p' in block) return <p set:html={block.p} />;
+            if ('list' in block) return <ul>{block.list.map((item) => <li set:html={item} />)}</ul>;
+            if ('steps' in block) return <ol>{block.steps.map((item) => <li set:html={item} />)}</ol>;
+            if ('table' in block)
+              return (
+                <div class="eu-scroll">
+                  <table>
+                    <thead>
+                      <tr>{block.table.head.map((cell) => <th scope="col">{cell}</th>)}</tr>
+                    </thead>
+                    <tbody>
+                      {block.table.rows.map((row) => (
+                        <tr>{row.map((cell, i) => (i === 0 ? <th scope="row" set:html={cell} /> : <td set:html={cell} />))}</tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              );
+            if ('example' in block) {
+              const e = example(block.example);
+              return (
+                <figure class="eu-card verse">
+                  <figcaption>
+                    <strong>{METRES[e.metre].label}, rhymed {e.scheme}.</strong> {e.caption}
+                  </figcaption>
+                  <ol class="lines">
+                    {e.lines.map((line, i) => (
+                      <li>
+                        <span class="sung">{line}</span>
+                        <span class="eu-data beats">{e.beats[i]}</span>
+                      </li>
+                    ))}
+                  </ol>
+                </figure>
+              );
+            }
+            const m = block.misfit;
+            return (
+              <figure class="eu-card verse">
+                <figcaption set:html={m.why} />
+                <dl class="pair">
+                  <dt>Doesn’t fit</dt>
+                  <dd>
+                    <span class="sung">{m.wrong}</span>
+                    <span class="eu-data beats">{m.wrongBeats}</span>
+                  </dd>
+                  <dt>Fits</dt>
+                  <dd>
+                    <span class="sung">{m.right}</span>
+                    <span class="eu-data beats">{m.rightBeats}</span>
+                  </dd>
+                </dl>
+              </figure>
+            );
+          })}
+        </>
+      ))
+    }
+
+    <h2 id="questions">Questions</h2>
+    <dl>
+      {
+        faq.map((item) => (
+          <>
+            <dt>{item.q}</dt>
+            <dd>{item.a}</dd>
+          </>
+        ))
+      }
+    </dl>
+
+    <h2 id="sources">Sources</h2>
+    <p>Real anthems are named in this guide and never quoted. Every source was read on {updated}.</p>
+    <ul>
+      {
+        SOURCES.map((source) => (
+          <li>
+            <a href={source.kind === 'wikipedia' ? wikipedia(source.title, site.host) : ref(source.url!, site.host)}>{source.title}</a>, {source.publisher}: {source.note}
+          </li>
+        ))
+      }
+    </ul>
+    <p class="eu-muted">Last updated <time datetime={GUIDE_UPDATED}>{updated}</time>.</p>
+  </article>
+</Page>
+
+<style>
+  /* A list of links, not links in a sentence: each is tall enough to press. */
+  .contents {
+    columns: 2 16rem;
+  }
+
+  .contents a {
+    display: inline-flex;
+    align-items: center;
+    min-width: var(--size-target);
+    min-height: var(--size-target);
+  }
+
+  .verse {
+    margin: var(--space-4) 0;
+    gap: var(--space-3);
+  }
+
+  .lines,
+  .pair {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .lines li,
+  .pair dd {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+  }
+
+  .sung {
+    font: var(--type-heading);
+  }
+
+  .beats {
+    color: var(--ink-muted);
+  }
+
+  .pair dt {
+    font-weight: 700;
+  }
+</style>
