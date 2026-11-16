@@ -15,7 +15,8 @@
     "review": "node --experimental-strip-types --disable-warning=ExperimentalWarning tools/review.ts",
     "sample": "node --experimental-strip-types --disable-warning=ExperimentalWarning tools/sample.ts",
     "depth": "node --experimental-strip-types --disable-warning=ExperimentalWarning tools/depth.ts",
-    "sheet": "node --experimental-strip-types --disable-warning=ExperimentalWarning tools/sheet.ts"
+    "sheet": "node --experimental-strip-types --disable-warning=ExperimentalWarning tools/sheet.ts",
+    "content": "node --experimental-strip-types --disable-warning=ExperimentalWarning tools/content.ts"
   },
   "devDependencies": {
     "@types/node": "^22.10.0",

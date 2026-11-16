@@ -6,24 +6,25 @@ Three parts: what comes next, what each release added (newest first), and what's
 
 ## Where to pick up
 
-**16 November 2026.** Phase 1, steps 1 to 11 are done and pushed: the pronunciation table, scanning, metre and rhyme, the bank format and its compiler, the generator with re-roll and kept lines, all eleven batches of the phrase bank, the thousands of runs, editing, the link and the profile, the words out and the lyric sheet (`npm test`: 109 tests, about 5,000 anthems).
+**16 November 2026.** Phase 1 is done and pushed but for step 12, the examples: the pronunciation table, scanning, metre and rhyme, the bank format and its compiler, the generator with re-roll and kept lines, all eleven batches of the phrase bank, the thousands of runs, editing, the link and the profile, the words out, the lyric sheet, and the guide and the glossary (`npm test`: 118 tests, about 5,000 anthems).
 
 The phrase banks: all eleven batches are drafted, 1,953 lines in all, in `src/anthem/bank/` (`core.ts`, `sea.ts`, `mountains.ts`, `freedom.ts`, `unity.ts`, `faith.ts`, `labour.ts`, `crown.ts`, `more.ts`, `chorus.ts`, `last.ts`), each with its review page in `content/review/`. Every one of the seventeen themes on the chips now has lines, and so has the emu. Stijn has said the tone of batch 1 is right to carry on in. **None is marked reviewed yet:** that waits for him to say so for each batch, after reading its page.
 
-Next, in this order: step 12 (the examples), step 13 (the guide and the glossary), then Phase 2, the site: @eurth/style is released. Apply Stijn's notes on a batch as they come, and set `reviewed: true` in its file only when he says so.
+Next: Phase 2, the site, from step 14. @eurth/style is released. Step 12 (the examples) waits for the batch reviews, because an example is a frozen anthem and a line Stijn cuts should not be frozen into one; make them as soon as the batches are reviewed, or at step 15 if the Examples page needs them first, and make them again after the reviews. Apply Stijn's notes on a batch as they come, and set `reviewed: true` in its file only when he says so. The guide and the glossary are his to read as well: `content/guide.md` and `content/glossary.md`.
 
 Handy while writing the banks:
 
 - `npm run sample -- 8787 ABAB solemn Teland 1 2 harbour,Selunna:010 sea` writes one anthem to the terminal (metre, scheme, mood, country, seed, verses, words to include, themes).
 - `npm run depth` shows how often the longest anthem runs the bank short, and which rhyme sounds each kind of line can end on. It must stay at zero. (Checked for each theme by itself too on 16 November: zero, and a chosen theme gives between a quarter and a half of an anthem's lines.)
 - `npm run review` rewrites the review pages from the bank. Run it after every change to a batch and commit the pages with it.
+- `npm run content` rewrites `content/guide.md` and `content/glossary.md` from `src/content/`, to read before the site exists.
 
 Waiting on others:
 
 - **@eurth/style** is released (1.2.1 on 15 November 2026), so Phase 2 is no longer blocked. Read its HANDBOOK.md and start from its starter template.
 - **@eurth/profile** is released (1.0.1). Its `anthem` section holds `title` and `lyrics`. The brief also wants the metre and the settings, so [pull request 4](https://github.com/eurth-org/eurth-profile/pull/4) there adds four optional fields: `metre`, `rhyme`, `mood` and `themes`. That makes six typed fields, the profile's own limit. **It is open and waiting to be merged.** Anthem writes the four fields already (`profile.ts`): the section keeps unknown keys.
 - **IIWiki's lyrics markup:** Stijn to say whether IIWiki has the `<poem>` tag and an anthem infobox template. Until then the wiki export uses plain wikitext that works on any MediaWiki.
-- **Phrase bank reviews:** each batch (Phase 1, step 6) waits for Stijn. An unreviewed batch never ships.
+- **Phrase bank reviews:** each batch (Phase 1, step 6) waits for Stijn. An unreviewed batch never ships. The guide and the glossary wait for his read too.
 
 ## How it writes
 
@@ -82,7 +83,7 @@ Plain TypeScript in `src/anthem/`, data in `src/anthem/bank/` and `data/`, tests
 10. **Words out** (`describe.ts`, `wikitext.ts`): Copy lyrics as plain text; Copy description ("'Steady Against the Tide', the national anthem of Teland: two verses and a chorus in 8.7.8.7, rhymed ABAB, on the sea, freedom and unity", then the first verse); wikitext for an anthem section with a lyrics box, in plain markup that needs no template or extension. **Done.** The themes and moods and their words are in `themes.ts`.
 11. **The lyric sheet** (`sheet.ts`): the hymn-sheet layout as an SVG string for each of the handbook's sizes: title, "National anthem of ...", the metre and rhyme scheme, numbered verses, the chorus set apart. Small sizes show the title, the first verse and the chorus, and say how many verses there are; tall sizes show everything that fits at a readable size. Text is measured by a function passed in, so the site can measure with the real fonts. Colours come in as a palette, so the site can pass @eurth/style's tokens later. **Done.** `npm run sheet -- <folder>` writes sample sheets to look at. Wide pictures set the stanzas in two columns, so even the link preview holds two or three verses and a chorus.
 12. **Examples** (`examples.ts`): anthems of fictional nations, at least one per metre and rhyme scheme, made by the generator and then frozen as links: Teland from the mock-up, and others. Calderwyn's "Lanterns on the Water" from the profile example is shown as a hand-written one. A test holds every example to its metre.
-13. **Guide and glossary** (`src/content/`): what national anthems usually say and why; hymn metres explained; how to make words fit a tune; writing a translation; an official short version; with sources checked when written and a last-updated date. Real anthems are described by name and by what they do, never quoted. A glossary of about 40 terms (metre, foot, iamb, trochee, common metre, feminine rhyme, refrain and so on), with the dictionary's licence and credit.
+13. **Guide and glossary** (`src/content/`): what national anthems usually say and why; hymn metres explained; how to make words fit a tune; writing a translation; an official short version; with sources checked when written and a last-updated date. Real anthems are described by name and by what they do, never quoted. A glossary of about 40 terms (metre, foot, iamb, trochee, common metre, feminine rhyme, refrain and so on), with the dictionary's licence and credit. **Done,** as data the pages will lay out, the way Flagwright's guide and glossary are written: `guide.ts` holds the sections, three example verses with their beats marked, a line that goes wrong and is put right, five questions for the FAQ, and seventeen sources, each read on 16 November 2026; `glossary.ts` holds 62 terms in five groups and the dictionary's credit. `tests/content.test.ts` holds the example verses to their metre and rhyme, and every link to a page or a glossary term that exists. Two things for the page to do: build the source links with `wikipedia()` and `ref()`, and print the dictionary's licence in full from `data/cmudict/LICENSE`, as that licence asks. One source was dropped: Britannica's article refused to be read by the tool, so nothing in the guide rests on it.
 
 ### Phase 2: the site (@eurth/style is released, so this can start)
 
