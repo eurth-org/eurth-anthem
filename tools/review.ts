@@ -89,7 +89,7 @@ function notes(t: Template): string {
   return out.join('; ');
 }
 
-function samples(theBank: Bank): string {
+function samples(theBank: Bank, themes: readonly string[]): string {
   const out: string[] = [];
   const schemes: SchemeId[] = ['ABAB', 'ABCB', 'AABB'];
   const names: [string, Record<string, string>][] = [
@@ -105,12 +105,14 @@ function samples(theBank: Bank): string {
       const [country, own] = names[(n + i) % names.length]!;
       const mood = MOOD_IDS[(n + i) % MOOD_IDS.length]!;
       const scheme = schemes[(n + i) % schemes.length]!;
-      const settings: Settings = { ...DEFAULT_SETTINGS, country, own, metre, scheme, mood, verses: 1, chorus: true };
+      // A themed batch is heard with its own themes chosen, one at a time.
+      const chosen = themes.length > 0 ? [themes[(n + i) % themes.length]!] : [];
+      const settings: Settings = { ...DEFAULT_SETTINGS, country, own, metre, scheme, mood, themes: chosen, verses: 1, chorus: true };
       const result = generate(theBank, settings, 1000 + n * 10 + i, { lexicon: lex });
       // The chorus carries the name, so show it; then the verse.
       for (const stanza of [result.anthem.stanzas[1]!, result.anthem.stanzas[0]!]) {
         const said = result.notes.find((note) => note.kind === 'scheme');
-        out.push(`**${METRES[metre].label}${metre === 'free' ? ` (${kindsLabel(stanza.kinds)})` : ''}, ${said ? said.used : scheme}, ${mood}, ${stanza.type}**\n`);
+        out.push(`**${METRES[metre].label}${metre === 'free' ? ` (${kindsLabel(stanza.kinds)})` : ''}, ${said ? said.used : scheme}, ${mood}${chosen.length > 0 ? `, on ${chosen.join(' and ')}` : ''}, ${stanza.type}**\n`);
         out.push(stanza.lines.map((l) => `> ${l.text}`).join('  \n'));
         out.push('');
       }
@@ -181,9 +183,9 @@ BATCHES.forEach((batch, index) => {
 
   lines.push('## Sample verses');
   lines.push('');
-  lines.push('Twenty choruses and twenty verses, made by the generator from the bank as it stands, in every metre. The names are made up.');
+  lines.push(`Twenty choruses and twenty verses, made by the generator from the whole bank as it stands, in every metre${mine.some((t) => t.themes.length > 0) ? ', with this batch\'s themes chosen' : ''}. The names are made up.`);
   lines.push('');
-  lines.push(samples(bank));
+  lines.push(samples(bank, [...new Set(mine.flatMap((t) => t.themes))]));
 
   const target = resolve(root, `content/review/${number}-${batch.id}.md`);
   mkdirSync(dirname(target), { recursive: true });

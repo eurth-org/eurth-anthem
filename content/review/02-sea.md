@@ -301,284 +301,284 @@ A tag after a phrase limits it: `#sea` only when that theme is chosen, `@march` 
 
 ## Sample verses
 
-Twenty choruses and twenty verses, made by the generator from the bank as it stands, in every metre. The names are made up.
+Twenty choruses and twenty verses, made by the generator from the whole bank as it stands, in every metre, with this batch's themes chosen. The names are made up.
 
-**8.7.8.7, ABAB, solemn, chorus**
+**8.7.8.7, ABAB, solemn, on sea, chorus**
+
+> Teland, free and bold for ever,  
+> Stand like cliffs against the tide;  
+> May thy courage fail thee never;  
+> Ours to shield and ours to guide.
+
+**8.7.8.7, ABAB, solemn, on sea, verse**
+
+> Where the restless waves are breaking,  
+> Keep the hope and bless the sea;  
+> Still the golden cliffs are waking;  
+> Wave and wind shall keep us free.
+
+**8.7.8.7, ABCB, march, on rivers, chorus**
 
 > Come what may of wind and weather,  
-> Lift the song and raise it high;  
-> Rise, O Teland, rise together,  
-> Till the daybreak lights the sky.
+> Every river knows its way;  
+> Rise, Selunna, rise together,  
+> While the springs are bright with day.
 
-**8.7.8.7, ABAB, solemn, verse**
-
-> Bound by hope that none shall sever,  
-> Keep us free through frost and night;  
-> Fail or falter shall we never;  
-> Long may all thy homes be bright.
-
-**8.7.8.7, ABCB, march, chorus**
-
-> O Selunna, ours for ever,  
-> Light the lamp and show the way;  
-> Share the joy and share the sorrow;  
-> Evermore, come night, come day.
-
-**8.7.8.7, ABCB, march, verse**
-
-> Land of all our joys and stories,  
-> Every road has heard our song;  
-> Hear your founders gladly singing;  
-> Now and always, bright and strong.
-
-**8.7.8.7, ABAB, hopeful, chorus**
-
-> Calderwyn, be bold for ever,  
-> Till the storm has passed away;  
-> May your glory fail you never;  
-> Evermore, come night, come day.
-
-**8.7.8.7, ABAB, hopeful, verse**
-
-> Fairest land in all creation,  
-> Guard your people, guard your land;  
-> Every heart in celebration,  
-> While the streams and meadows stand.
-
-**8.7.8.7, ABAB, pastoral, chorus**
-
-> Kwaz, be true and proud for ever,  
-> Guard your people, guard your land;  
-> May your friendship fail you never;  
-> So we pledge with heart and hand.
-
-**8.7.8.7, ABAB, pastoral, verse**
+**8.7.8.7, ABCB, march, on rivers, verse**
 
 > Land of love and ancient story,  
-> Be to each a faithful friend;  
+> We have known the darkest night;  
+> Hear your elders gladly singing;  
+> This our hope and this our light.
+
+**8.7.8.7, ABAB, hopeful, on sea, chorus**
+
+> Calderwyn, we stand together;  
+> Firm we stand and bright we stay;  
+> Through the wind and winter weather,  
+> Raise the sail and greet the day.
+
+**8.7.8.7, ABAB, hopeful, on sea, verse**
+
+> Home of humble sons and daughters,  
+> Keep the lantern burning bright;  
+> Sing it, wind, and sing it, waters;  
+> This our pride and this our light.
+
+**8.7.8.7, ABAB, pastoral, on rivers, chorus**
+
+> Kwaz, be proud and true for ever,  
+> Greet the dawn and bless the day;  
+> May your friendship fail you never;  
+> Sure as rivers find their way.
+
+**8.7.8.7, ABAB, pastoral, on rivers, verse**
+
+> Land of love and ancient story,  
+> Let the river bear the song;  
 > One in heart and one in glory;  
-> Ours to hold and ours to tend.
+> We will keep you brave and strong.
 
-**8.7.8.7, ABCB, solemn, chorus**
+**8.7.8.7, ABCB, solemn, on sea, chorus**
 
-> Valderona, free and humble,  
-> Walk together to the end;  
-> May thy courage fail thee never;  
-> Ours to bless and ours to tend.
+> Valderona, strong and noble,  
+> Ours the shore and ours the sea;  
+> Still the morning mist is lifting;  
+> Wave and wind shall keep us free.
 
-**8.7.8.7, ABCB, solemn, verse**
+**8.7.8.7, ABCB, solemn, on sea, verse**
 
-> Land of peace and ancient story,  
-> Every hearth has heard our song;  
-> See the morning brightly breaking;  
-> We will keep thee bright and strong.
+> Land of sail and shining ocean,  
+> Here the sea and sky are wide;  
+> Keep the harbour lantern burning;  
+> Steady as the turning tide.
 
-**8.6.8.6, ABCB, march, chorus**
+**8.6.8.6, ABCB, march, on rivers, chorus**
 
-> As sure as morning follows night,  
-> One people and one song;  
-> Hold fast to all that makes us one;  
-> Selunna, true and strong.
-
-**8.6.8.6, ABCB, march, verse**
-
-> O land of streams and ancient skies,  
-> Come, build the land anew;  
-> Stand fast, stand firm, through war and flood;  
-> We pledge our hearts to you.
-
-**8.6.8.6, AABB, hopeful, chorus**
-
-> O Calderwyn, our gentle land,  
-> United, hand in hand;  
-> The streams and borders know our name;  
-> In every heart the same.
-
-**8.6.8.6, AABB, hopeful, verse**
-
-> Let old and young together sing,  
-> Now let the rivers ring;  
-> Let every voice be raised in song,  
-> And sing it loud and long.
-
-**8.6.8.6, ABAB, pastoral, chorus**
-
-> The skies and borders know our name;  
-> The story shall be told;  
-> We are the keepers of the flame;  
-> O Kwaz, be free, be bold.
-
-**8.6.8.6, ABAB, pastoral, verse**
-
-> O land of streams and peaceful walls,  
-> United, hand in hand;  
-> From golden homes to quiet halls,  
-> Give strength to all the land.
-
-**8.6.8.6, ABCB, solemn, chorus**
-
-> Beneath the wide and open sky,  
+> Selunna, bold and steadfast land,  
 > O grant us lasting peace;  
-> O Valderona, land of truth,  
+> Stand fast, stand firm, through storm and night;  
 > May friendship never cease.
 
-**8.6.8.6, ABCB, solemn, verse**
+**8.6.8.6, ABCB, march, on rivers, verse**
 
-> O land of all we hold most dear,  
-> The land is green and wide;  
-> Our dreams are high, our hearts are brave;  
-> One people, side by side.
+> O land of banks and ancient lakes,  
+> Come, build the land anew;  
+> Be just, be brave, be fair of heart;  
+> We pledge our hearts to you.
 
-**8.6.8.6, AABB, march, chorus**
+**8.6.8.6, AABB, hopeful, on sea, chorus**
+
+> O Calderwyn, our noble land,  
+> United, hand in hand;  
+> Beyond the reef, beyond the bay,  
+> Set sail and greet the day.
+
+**8.6.8.6, AABB, hopeful, on sea, verse**
+
+> Let every harbour ring with song,  
+> Come, sing it loud and long;  
+> O guide our sailors through the night,  
+> By star and lantern light.
+
+**8.6.8.6, ABAB, pastoral, on rivers, chorus**
+
+> O Kwaz, O Kwaz, our home, our land,  
+> Each morning makes us new;  
+> Go forth with strength in heart and hand;  
+> We pledge our hearts to you.
+
+**8.6.8.6, ABAB, pastoral, on rivers, verse**
+
+> O land of banks and peaceful mills,  
+> The river knows its way;  
+> From golden fords to quiet hills,  
+> Arise and greet the day.
+
+**8.6.8.6, ABCB, solemn, on sea, chorus**
+
+> Together we have come so far,  
+> And salt is in the air;  
+> The sea is wide, the sky is high;  
+> O Valderona, fair.
+
+**8.6.8.6, ABCB, solemn, on sea, verse**
+
+> O daughter of the wind and wave,  
+> The tide is running free;  
+> We are the keepers of the flame;  
+> We pledge our hearts to thee.
+
+**8.6.8.6, AABB, march, on rivers, chorus**
 
 > We keep the peace our mothers won,  
 > Beneath the rising sun;  
-> Come, homes and waters, join the song;  
+> Come, fords and ferries, join the song;  
 > And Teland shall be strong.
 
-**8.6.8.6, AABB, march, verse**
+**8.6.8.6, AABB, march, on rivers, verse**
 
 > O land of love and land of pride,  
 > The land is bright and wide;  
 > Remember those who went before;  
 > In hope for evermore.
 
-**7.7.7.7, AABB, hopeful, chorus**
+**7.7.7.7, AABB, hopeful, on sea, chorus**
 
-> Calderwyn, our gentle land,  
-> Glad of heart and firm of hand;  
-> Fair we stand and brave we stay;  
-> Evermore, come night, come day.
+> Calderwyn, the strong and brave,  
+> Hold the course through wind and wave;  
+> Keep the lantern burning bright,  
+> Through the gale and through the night.
 
-**7.7.7.7, AABB, hopeful, verse**
+**7.7.7.7, AABB, hopeful, on sea, verse**
 
-> Home through all the changing years,  
-> We have conquered all our fears;  
-> Keep us glad through storm and night;  
-> This our hope and this our light.
+> Home of all who sail the sea,  
+> Here the old and young are free;  
+> Guard your people, guard your land;  
+> So we pledge with heart and hand.
 
-**7.7.7.7, ABAB, pastoral, chorus**
+**7.7.7.7, ABAB, pastoral, on rivers, chorus**
 
 > Kwaz, O Kwaz, our song, our light,  
-> Stand together, bright and strong;  
+> Guard your people, guard your land;  
 > We have known the darkest night;  
-> This our pride and this our song.
+> Friend to friend and hand in hand.
 
-**7.7.7.7, ABAB, pastoral, verse**
+**7.7.7.7, ABAB, pastoral, on rivers, verse**
 
 > Light the lamp and show the way,  
 > That our children may be free;  
 > Greet the dawn and bless the day;  
 > So it was, and so shall be.
 
-**7.7.7.7, ABCB, solemn, chorus**
+**7.7.7.7, ABCB, solemn, on sea, chorus**
 
-> Valderona, land of strength,  
-> Far and wide our people roam;  
-> Every road has heard our song,  
-> And we share a common home.
+> Valderona, land of hope,  
+> We have sailed through storm and gale;  
+> We shall see a brighter day,  
+> And the sea-wind fills the sail.
 
-**7.7.7.7, ABCB, solemn, verse**
+**7.7.7.7, ABCB, solemn, on sea, verse**
 
-> Here we plant and here we grow;  
-> We have come a weary way;  
+> Here the sea and sky are wide;  
+> Ours the shore and ours the sea;  
+> Wind and wave have made us one;  
+> Wave and wind shall keep us free.
+
+**7.7.7.7, AABB, march, on rivers, chorus**
+
+> Teland, Teland, proud and bright,  
 > We have known the darkest night;  
-> Evermore, come night, come day.
+> All our streams run down as one,  
+> While the lakes are bright with sun.
 
-**7.7.7.7, AABB, march, chorus**
+**7.7.7.7, AABB, march, on rivers, verse**
 
-> Teland, land of quiet walls,  
-> Bless the streams and bless the halls;  
-> Though the road be hard and long,  
-> Every stream has heard our song.
-
-**7.7.7.7, AABB, march, verse**
-
-> Land that gave us heart and hand,  
-> Guard your people, guard your land;  
+> Land of river, bridge and mill,  
+> Keep the joy and bless the hill;  
 > Greet the dawn and bless the day,  
 > For the years along the way.
 
-**7.7.7.7, ABAB, hopeful, chorus**
+**7.7.7.7, ABAB, hopeful, on sea, chorus**
 
-> O Selunna, just and bright,  
-> Let the towns and cities ring;  
-> Keep us true through storm and night;  
-> This we promise, this we sing.
+> O Selunna, free and bright,  
+> Walk together to the end;  
+> We have known the darkest night;  
+> Ours to guide and ours to tend.
 
-**7.7.7.7, ABAB, hopeful, verse**
+**7.7.7.7, ABAB, hopeful, on sea, verse**
 
-> Land where all our hearts belong,  
-> Guard your people, guard your land;  
-> Every hill has heard our song;  
-> Friend to friend and hand in hand.
+> Land of harbour, sail and tide,  
+> Light the lamp and show the way;  
+> Here the sea and sky are wide;  
+> Evermore, come night, come day.
 
-**Free (8.6.8.6), ABAB, pastoral, chorus**
+**Free (8.6.8.6), ABAB, pastoral, on rivers, chorus**
 
 > O Kwaz, O Kwaz, our pride, our song,  
-> Each morning makes us new;  
+> The river knows its way;  
 > Our dreams are high, our hearts are strong;  
-> We pledge our hearts to you.
+> Tomorrow and today.
 
-**Free (8.6.8.8), ABAB, pastoral, verse**
+**Free (8.6.8.8), ABAB, pastoral, on rivers, verse**
 
-> O land of hills and peaceful walls,  
+> O land of halls and peaceful mills,  
 > The story shall be told;  
-> From sunlit towns to ancient halls,  
+> From sunlit springs to ancient hills,  
 > The land we love is fair and bold.
 
-**Free (8.6.8.8), ABCB, solemn, chorus**
+**Free (8.6.8.8), ABCB, solemn, on sea, chorus**
 
 > O Valderona, land of peace,  
-> Each morning makes us new;  
-> Let old and young together sing;  
-> For ever strong, for ever true.
+> The harbour lights are bright;  
+> Let every harbour ring with song;  
+> One shore, one sea, one steady light.
 
-**Free (7.8.7.8), ABCB, solemn, verse**
+**Free (7.8.7.8), ABCB, solemn, on sea, verse**
 
-> From the dawn to close of day,  
-> Remember those who went before;  
-> Let our many hearts be one;  
+> Where the river meets the tide,  
+> Come wind, come wave, we hold the shore;  
+> Hold the course through wind and wave;  
 > We keep it now and evermore.
 
-**Free (8.6.8.8), AABB, march, chorus**
+**Free (7.6.7.6), AABB, march, on rivers, chorus**
 
-> O Teland, ever brave and bold,  
-> The story shall be told;  
-> Remember those who went before;  
-> We keep it now and evermore.
+> Teland, Teland, just and strong,  
+> One people and one song;  
+> Every river knows its way;  
+> Tomorrow and today.
 
-**Free (8.6.8.8), AABB, march, verse**
+**Free (8.6.8.8), AABB, march, on rivers, verse**
 
 > O land of joy and land of pride,  
 > The land is fair and wide;  
-> By all the streams our mothers knew,  
-> Our hopes are high, our hearts are true.
+> Though far away or near at hand,  
+> With loyal hearts we take our stand.
 
-**Free (8.7.8.7), ABAB, hopeful, chorus**
+**Free (7.7.8.6), ABAB, hopeful, on sea, chorus**
 
-> Fail or falter shall we never,  
-> While the homes and rivers stand;  
-> O Selunna, ours for ever,  
-> So we pledge with heart and hand.
+> O Selunna, proud and bold,  
+> Hold the course through wind and wave;  
+> Our fathers built, and we shall hold;  
+> For ever glad and brave.
 
-**Free (8.6.8.8), ABAB, hopeful, verse**
+**Free (8.6.8.8), ABAB, hopeful, on sea, verse**
 
-> By all the towns our fathers knew,  
+> Beneath the wide and open sky,  
+> O bless the ships at sea;  
+> The sea is wide, the sky is high;  
+> The sea is ours, and we are free.
+
+**Free (8.6.8.6), ABCB, pastoral, on rivers, chorus**
+
+> The river runs, the river sings,  
+> Beneath the rising sun;  
+> O Calderwyn, the proud and brave,  
+> Our many streams are one.
+
+**Free (8.6.8.6), ABCB, pastoral, on rivers, verse**
+
+> Where the bridge has cast its shadow,  
 > Come, build the land anew;  
-> The land we love is fair and true;  
-> Our hearts, our hands, we pledge to you.
-
-**Free (8.6.8.8), ABCB, pastoral, chorus**
-
-> In days of old, in days to be,  
-> Our dreams are brave and strong;  
-> O Calderwyn, our noble land,  
-> One land, one heart, one lasting song.
-
-**Free (8.6.8.6), ABCB, pastoral, verse**
-
-> Through the wind and winter weather,  
-> Come, build the land anew;  
-> Home of fearless sons and daughters,  
+> Land of bridges, land of rivers,  
 > We pledge our hearts to you.

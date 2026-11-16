@@ -644,7 +644,7 @@ A tag after a phrase limits it: `#sea` only when that theme is chosen, `@march` 
 
 ## Sample verses
 
-Twenty choruses and twenty verses, made by the generator from the bank as it stands, in every metre. The names are made up.
+Twenty choruses and twenty verses, made by the generator from the whole bank as it stands, in every metre. The names are made up.
 
 **8.7.8.7, ABAB, solemn, chorus**
 
