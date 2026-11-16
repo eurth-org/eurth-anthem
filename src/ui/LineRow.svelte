@@ -33,6 +33,8 @@
   // While the field has the cursor it shows exactly what was typed, trailing space and all;
   // the anthem holds the tidied line.
   let draft = $state<string | null>(null);
+  // Only the row being worked on speaks: a sheet of twenty counts read out at once helps nobody.
+  let within = $state(false);
 
   const good = $derived(check ? check.fits && check.rhyme !== 'no' : true);
   const words = $derived.by(() => {
@@ -47,7 +49,7 @@
   });
 </script>
 
-<li class="row">
+<li class="row" onfocusin={() => (within = true)} onfocusout={() => (within = false)}>
   <label class="eu-visually-hidden" for={id}>{where}</label>
   <input
     {id}
@@ -70,7 +72,7 @@
   <button type="button" class="eu-btn eu-btn--icon" aria-pressed={line.locked} aria-label="Lock {where}" data-tip={line.locked ? 'Locked: kept as it is when you write again' : 'Lock this line'} onclick={() => onlock(!line.locked)}>
     <Icon icon={line.locked ? faLock : faLockOpen} />
   </button>
-  <p class="note" class:off={!good} id="{id}-note" aria-live="polite">
+  <p class="note" class:off={!good} id="{id}-note" aria-live={within ? 'polite' : 'off'}>
     <Icon icon={good ? faCheck : faTriangleExclamation} />
     <span>{words}{line.typed ? ' Yours.' : ''}</span>
   </p>

@@ -78,6 +78,8 @@
   let lex = $state.raw<Lexicon>(EMPTY_LEXICON);
   let lexLoaded = $state(false);
   let sheet: HTMLElement | undefined = $state();
+  // Said to screen readers when the words change somewhere the eye would simply see it.
+  let announce = $state('');
 
   let seed = 0;
   let bank: Promise<Bank | null> | null = null;
@@ -221,6 +223,7 @@
     notes = tell;
     touched = true;
     busy = false;
+    announce = `A new anthem is on the sheet: “${result.anthem.title}”.`;
     if (saying) toast(saying);
     // The form is long, and on a phone the sheet is below it: bring the new anthem into view.
     const top = sheet?.getBoundingClientRect().top ?? 0;
@@ -237,6 +240,7 @@
     if (only) return toast(noteInWords(only, anthem, written));
     anthem = result.anthem;
     touched = true;
+    announce = `${where(at.stanza, at.line)} now reads: ${result.anthem.stanzas[at.stanza]?.lines[at.line]?.text ?? ''}`;
   }
 
   function type(at: At, text: string) {
@@ -397,6 +401,7 @@
 </script>
 
 <div class="generator">
+  <p class="eu-visually-hidden" aria-live="polite">{announce}</p>
   <form
     class="eu-card controls"
     aria-labelledby="settings-title"
@@ -801,6 +806,13 @@
 
   @media (max-width: 900px) {
     .generator {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+
+  /* On a narrow screen the picture's size sits above its three buttons. */
+  @media (max-width: 600px) {
+    .pictures {
       grid-template-columns: minmax(0, 1fr);
     }
   }
