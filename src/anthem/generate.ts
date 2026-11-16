@@ -700,9 +700,9 @@ function writeTitle(ctx: Ctx, stanzas: readonly Stanza[]): string {
 
 // ----------------------------------------------------------------------------------- the whole anthem
 
-function keptLine(ctx: Ctx, line: Line): KeptLine {
+function keptLine(ctx: Ctx, line: Line, kind: LineKind = line.kind): KeptLine {
   const words = scanLine(line.text, ctx.lex, ctx.s.own);
-  const pattern = ctx.s.metre === 'free' && line.typed ? null : KIND_PATTERN[line.kind];
+  const pattern = ctx.s.metre === 'free' && line.typed ? null : KIND_PATTERN[kind];
   const ends = lineEnds(words, pattern);
   const endWord = ends[0]?.word ?? words[words.length - 1]?.word ?? '';
   return { line, ends, endWord };
@@ -794,7 +794,8 @@ export function generate(bank: Bank, settings: Settings, seed: number, options: 
 
     const kept: (KeptLine | null)[] = [0, 1, 2, 3].map((i) => {
       const line = before?.lines[i];
-      return line && (line.typed || line.locked) ? keptLine(ctx, line) : null;
+      // A kept line takes the place's line shape; whether it still fits is for the page to say.
+      return line && (line.typed || line.locked) ? keptLine(ctx, { ...line, kind: kinds[i]! }) : null;
     });
     // Kept lines keep the part they play; the lines written round them take whichever parts make
     // sentences with them.
