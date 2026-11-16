@@ -8,9 +8,9 @@ Three parts: what comes next, what each release added (newest first), and what's
 
 **16 November 2026.** Phase 1, steps 1 to 5 and 7 to 11 are done and pushed: the pronunciation table, scanning, metre and rhyme, the bank format and its compiler, the generator with re-roll and kept lines, the thousands of runs, editing, the link and the profile, the words out and the lyric sheet (`npm test`: 105 tests, 4,320 anthems).
 
-The phrase banks: batches 1 to 3 are drafted (`core.ts`, `sea.ts`, `mountains.ts` in `src/anthem/bank/`), with their review pages in `content/review/`. Stijn has said the tone of batch 1 is right to carry on in. **None is marked reviewed yet:** that waits for him to say so for each batch, after reading its page.
+The phrase banks: batches 1 to 5 are drafted (`core.ts`, `sea.ts`, `mountains.ts`, `freedom.ts`, `unity.ts` in `src/anthem/bank/`: 932 lines in all), with their review pages in `content/review/`. Stijn has said the tone of batch 1 is right to carry on in. **None is marked reviewed yet:** that waits for him to say so for each batch, after reading its page.
 
-Next, in this order: batch 4 (freedom and revolution) and the batches after it, each with its review page; then steps 12 and 13. Apply Stijn's notes on a batch as they come, and set `reviewed: true` in its file only when he says so. Phase 2 may start as well: @eurth/style is released.
+Next, in this order: batch 6 (faith) and the batches after it, each with its review page; then steps 12 and 13. Apply Stijn's notes on a batch as they come, and set `reviewed: true` in its file only when he says so. Phase 2 may start as well: @eurth/style is released.
 
 Handy while writing the banks:
 
@@ -69,7 +69,7 @@ Plain TypeScript in `src/anthem/`, data in `src/anthem/bank/` and `data/`, tests
    10. Choruses and titles.
    11. Free metre, and the emu.
 
-   **Batches 1, 2 and 3 are drafted and waiting for review** (`content/review/01-core.md`, `02-sea.md`, `03-mountains.md`). A themed batch adds phrases to the core's groups and lines tagged with its themes; `tests/bank.test.ts` asks for at least five lines in every line shape for each theme, and a last line in each shape that can end a stanza. The floor for re-rolls in `tests/generate.test.ts` (how often a line has another that can replace it) is 0.7 with batch 1 alone; raise it as batches land, to 0.9 by launch.
+   **Batches 1 to 5 are drafted and waiting for review** (`content/review/01-core.md`, `02-sea.md`, `03-mountains.md`, `04-freedom.md`, `05-unity.md`). Batch 5 is unity alone: "the people" turned out to be everywhere in the core already. A themed batch adds phrases to the core's groups and lines tagged with its themes; `tests/bank.test.ts` asks for at least five lines in every line shape for each theme, and a last line in each shape that can end a stanza. The floor for re-rolls in `tests/generate.test.ts` (how often a line has another that can replace it) is 0.7 with batch 1 alone; raise it as batches land, to 0.9 by launch.
 
    Moods are tags on phrases and templates (most suit more than one), not four copies of the bank. Batch 1 comes with step 5, so the generator has something to run on; the rest follow one at a time.
 7. **The thousands of runs** (`tests/scan-runs.test.ts`): for every metre, rhyme scheme and mood, across many seeds, theme sets, verse counts, with and without a chorus, and names of every shape (in the dictionary, made-up, corrected by hand): every line scans as defined above; no line and no end word twice; the same seed gives the same anthem; included words are placed or reported; and nothing on a short guard list of famous anthem phrases ever comes out. The guard list lives in the tests only and is never shipped. **Done,** in `tests/generate.test.ts`: 4,320 anthems a run. The emu and the launch-build check come with their batches.

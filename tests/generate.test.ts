@@ -24,7 +24,7 @@ const NAMES: [string, Record<string, string>][] = [
   ['New Teland', { teland: '10' }],
 ];
 
-const THEMES = ['sea', 'mountains', 'freedom', 'unity', 'faith', 'labour', 'harvest', 'forests', 'plains', 'north'];
+const THEMES = ['sea', 'rivers', 'mountains', 'north', 'freedom', 'revolution', 'unity', 'faith', 'labour', 'harvest', 'forests', 'plains'];
 
 // Short fragments of famous anthems and patriotic songs. The generator must never write one,
 // even by chance. They live here only, and are never shipped.
@@ -43,6 +43,14 @@ const NEVER = [
   'rule the waves',
   'glorious and free',
   'stand on guard',
+  'freedom ring',
+  'to arms',
+  'hear the people sing',
+  'we shall overcome',
+  'deepest red',
+  'workers of the world',
+  'one for all',
+  'we are one, but we are many',
 ];
 
 /** Checks an anthem from the outside: from its words and the dictionary, not from the bank. */
